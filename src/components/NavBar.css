@@ -1,0 +1,36 @@
+nav{
+    display: flex;
+    background-color: rgba(116, 202, 193, 0.433);
+
+}
+.marca{
+    max-height: 50px;
+    margin-left: 100px;
+    font-weight: bolder;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.botones{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    margin-right: 10px;
+}
+.botones button{
+    background-color: transparent;
+    border: transparent;
+    padding: 5%;
+}
+
+.tam{
+    width: 300px;
+}
+.lista{
+    position: absolute;
+    top: 37px;
+    right: 0%;
+
+}

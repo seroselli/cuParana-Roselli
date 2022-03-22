@@ -1,18 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar.js';
 
 function App() {
   return (
-
-    <div className="App">
-        <div className="parallax">
-        </div>
-        <div className="titulo">Prueba mi app de React</div>
-        <div className="parallax">
-        </div>
+    <div className="parallax">
+    <NavBar marca="Cupcakes Paraná"/>
 
     </div>
   );
 }
 
 export default App;
+
+
+

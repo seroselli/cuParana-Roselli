@@ -11,28 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-.parallax{
-    /* The image used */
-    background-image: url("./../public/Assets/buttercream.jpg");
-  
-    /* Set a specific height */
-    min-height: 60vh; 
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.titulo{
-  position: absolute;
-  top: 40vh;
-  background-color: rgb(40, 50, 55);
-  color: rgb(220, 218, 218);
-  font-size: xx-large;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  width: 100%;
-}
