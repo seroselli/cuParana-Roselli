@@ -1,7 +1,7 @@
 nav{
     display: flex;
     background-color: rgba(116, 202, 193, 0.433);
-
+    height: 50px;
 }
 .marca{
     max-height: 50px;
@@ -10,16 +10,7 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
 }
-.botones{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    margin-right: 10px;
-}
-.botones button{
+.btnLogIn{
     background-color: transparent;
     border: transparent;
     padding: 5%;
@@ -27,10 +18,4 @@ nav{
 
 .tam{
     width: 300px;
-}
-.lista{
-    position: absolute;
-    top: 37px;
-    right: 0%;
-
 }
