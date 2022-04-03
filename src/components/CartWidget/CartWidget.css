@@ -5,11 +5,12 @@
     background-color: aliceblue;
     padding-right: 0.1rem;
     padding-left: 0.1rem;
-    width: 20vw;
+    width: 50vw;
     min-width: 200px;
     padding-top: 1.4rem;
     display: flex;
     flex-direction: column;
+    z-index: 1100!important;
 }
 .lista h5{
     text-align: center;

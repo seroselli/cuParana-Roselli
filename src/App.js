@@ -2,11 +2,11 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import { useState } from 'react';
+import {datos} from './db/asyncmock.js'
 
 function App() {
 
   const [state, setState] = useState(0);
-
 
   let parallax = {
     backgroundImage: "url('./assets/buttercream.jpg')",
@@ -17,16 +17,11 @@ function App() {
     backgroundSize: "cover",
   }
 
-  const cartCount = (event) =>{
-    return event==undefined?0:event;
-  }
-
   const handleCallBack = (event) =>{
-    console.log(`Se recibieron ${event} en el carrito`)
-    setState((state + parseInt(event)))
+    setState(event)
+
   }
-
-
+  
   return (
     <div style={parallax}>
       <NavBar marca="Cupcakes Paraná" cartCount={state}/>
