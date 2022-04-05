@@ -3,23 +3,26 @@ import ItemList from '../ItemList/ItemList';
 import { getDatos } from '../../db/asyncmock';
 import { useEffect, useState } from 'react';
 
-const ItemListContainer = (props) => {
+const ItemListContainer = ({onAdd,greeting}) => {
 
-  const [idatos,setIdatos] =useState([])
+  const [datos,setDatos] = useState([])
 
-  useEffect(()=>{
-    getDatos().then(data=>{
-      setIdatos(data)
+  useEffect(async ()=>{
+    await getDatos().then(data=>{
+      setDatos(data)
     })
   },[])
+
+
   const handleCallback = (event)=>{
-    props.onAdd(event)
+    onAdd(event)
   }
+
     return (
         <>
-            <div className="shop d-flex justify-content-center flex-column container">
-                <h1>{props.greeting}</h1>
-                <ItemList data={idatos} onAdd={handleCallback}/>
+            <div className="shop d-flex justify-content-center flex-column container mt-3">
+                <h1>{greeting}</h1>
+                <ItemList data={datos} onAdd={handleCallback}/>
             </div>
         </>
     )

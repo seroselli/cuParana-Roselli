@@ -10,6 +10,11 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
 }
+.marca img{
+    max-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .btnLogIn{
     background-color: transparent;
     border: transparent;

@@ -1,23 +1,24 @@
-import Item from '../Item/Item';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { useEffect, useState } from 'react';
 
-const ItemList = (props) => {
-
-    const [datos,setDatos] = useState(props.data)
+const ItemList = ({onAdd,data}) => {
+    
+    const [datos,setDatos] = useState(data)
 
     useEffect(()=>{
-        setDatos(props.data)
-    },[props.data])
+        setDatos(data)
+    },[data])
 
     const handleCallback = (event)=>{
-        props.onAdd(event)
+        onAdd(event)
     }
+    
     return (
         <>
             <div className="row">
                 {
                 datos.map(item =>
-                    <Item data={item} onAdd={handleCallback} key={"item"+item.id}/>
+                    <ItemDetailContainer data={item} onAdd={handleCallback} key={"item"+item.id}/>
                 )
                 }
             </div>

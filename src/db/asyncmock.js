@@ -81,3 +81,11 @@ export const getDatos = ()=>{
         },2000)
     })
 }
+
+export const getDatosbyId = (id)=>{
+    return new Promise (resolve=>{
+        setTimeout(()=>{
+            resolve(datos.find(element => element.id === id))
+        },100)
+    })
+}
