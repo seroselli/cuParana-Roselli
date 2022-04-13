@@ -6,7 +6,7 @@ const ItemCount = (props) => {
     let [count,setCount] = useState(initial)
     let [stock,setStock] = useState(props.stock)
 
-    const onTrigger = async (evento) => {
+    const onTrigger = async () => {
            props.onAdd({item:{cantidad: count, id: props.id},stock:stock})
            setStock(stock-count)
            stock===1? setCount(0) : setCount(1);
@@ -26,7 +26,7 @@ const ItemCount = (props) => {
                     </div>
             </div>
             <div className="d-flex w-100" style={btnDisabled}>
-                <button className='w-100 btn btn-outline-dark mt-3' type='button' onClick={()=>{onTrigger(count)}}>Add to Cart</button>
+                <button className='w-100 btn btn-outline-dark mt-3' type='button' onClick={onTrigger}>Add to Cart</button>
             </div>
         </>
     )

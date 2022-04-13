@@ -1,12 +1,9 @@
-.parallax {
-  /* The image used */
+.icono{
+  height: 400px;
+  width: auto;
+}
 
-  /* Set a specific height */
-  min-height: 100vh; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.boton-icon li a{
+  background-color: transparent;
+  border: transparent;
 }

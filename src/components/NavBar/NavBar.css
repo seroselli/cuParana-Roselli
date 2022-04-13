@@ -1,8 +1,9 @@
 nav{
     display: flex;
-    background-color: rgba(116, 202, 193, 0.433);
+    background-color: rgb(116, 202, 193);
     height: 50px;
 }
+
 .marca{
     max-height: 50px;
     margin-left: 100px;
@@ -10,7 +11,16 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
 }
-.marca img{
+
+.brandLogo{
+    max-height: 50px;
+    background-color: transparent;
+    border: transparent;
+}
+.marca a:hover{
+    background-color: transparent;
+}
+.marca a img{
     max-height: 50px;
     margin-left: auto;
     margin-right: auto;

@@ -2,3 +2,25 @@
 
     text-align: center;
 }
+
+.parallax{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./../../assets/buttercream.jpg');
+    min-height: 100vh;
+}
+
+.icono{
+    max-height: 50px;
+    width: auto;
+}
+ul li Link{
+    background-color: beige!important;
+    border: transparent!important;
+}
+
+.icono:hover{
+    transform: scale(1.2);
+}
