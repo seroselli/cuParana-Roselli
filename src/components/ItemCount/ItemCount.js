@@ -1,36 +1,55 @@
 import {useState } from 'react'
+import './ItemCount.css'
 
-const ItemCount = (props) => {
-    let initial = (props.stock===0) ? "sin stock" : 1;
+const ItemCount = ({id,stock,initial,onAdd}) => {
+    let eInitial = (stock===0) ? "sin stock" : parseInt(initial);
+    
+    const [count,setCount] = useState(eInitial)
 
-    let [count,setCount] = useState(initial)
-    let [stock,setStock] = useState(props.stock)
 
-    const onTrigger = async () => {
-           props.onAdd({item:{cantidad: count, id: props.id},stock:stock})
-           setStock(stock-count)
-           stock===1? setCount(0) : setCount(1);
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        onAdd(count)
     }
 
-    const btnDisabled = stock>0 ? {}:{pointerEvents:"none"}
 
+    function sumar() {
+        if(count<stock)
+            {setCount(count+1)}
+        if(count===stock)
+            {setCount(stock)}
+    }
+    
+    function restar() {
+        if(count>initial)
+            {setCount(count-1)}
+        if(count===initial)
+            {setCount(initial)}
+    }
     return (
-        <>
-            <div className='d-flex allign-center w-100' style={btnDisabled}>
-                    <div className="d-flex justify-content-center w-100">
-                        <button className="btn btn-outline-danger me-auto px-4" onClick={()=>{count>1?setCount(count-1):setCount(1)}}>-</button>
-                        <div className="align-middle px-3 my-auto fw-bold">
-                            {stock!==0?`${count}/${stock}`:"sin stock"}
+        <form onSubmit={handleSubmit}>
+            <div className='d-flex allign-center w-100' style={eInitial!=="sin stock"?null:{pointerEvents:"none"}}>
+                    <div className="botones">
+                        <span className="left" onClick={restar}></span>
+                        <span className="right" onClick={sumar}></span>
+                        <div className="box">
+                            <span>{count}</span>
                         </div>
-                        <button  className="btn btn-outline-success ms-auto px-4" onClick={()=>{count<stock?setCount(count+1):setCount(stock)}}>+</button>
                     </div>
             </div>
-            <div className="d-flex w-100" style={btnDisabled}>
-                <button className='w-100 btn btn-outline-dark mt-3' type='button' onClick={onTrigger}>Add to Cart</button>
+            <div className="d-flex w-100">
+                <button className='w-100 btn btn-outline-dark mt-3' type='submit'>Add to Cart</button>
             </div>
-        </>
+        </form>
     )
 }
 
+
 export default ItemCount
 
+/*                        <button className="btn btn-outline-danger me-auto px-4" type='button' onClick={()=>{count>1?setCount(count-1):setCount(1)}}>-</button>
+                        <div className="align-middle px-3 my-auto fw-bold">
+                            {stock!==0?`${count}/${stock}`:"sin stock"}
+                        </div>
+                        <button  className="btn btn-outline-success ms-auto px-4" type='button' onClick={()=>{count<estock?setCount(count+1):setCount(estock)}}>+</button>
+                   */

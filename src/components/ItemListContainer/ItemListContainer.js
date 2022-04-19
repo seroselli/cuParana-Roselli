@@ -5,7 +5,8 @@ import { getItems } from '../../db/asyncmock';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 
-const ItemListContainer = ({onAdd,greeting}) => {
+
+const ItemListContainer = ({greeting}) => {
   const [spinner,setSpinner] = useState(true)
   const [type,setType] = useState("")
   const [datos,setDatos] = useState([])
@@ -22,23 +23,17 @@ const ItemListContainer = ({onAdd,greeting}) => {
     useEffect(()=>{
       setType(category)
     },[category])
-    
-  const handleCallback = (event)=>{
-    onAdd(event)
-  }
 
     return (
         <>
         <div className="parallax">
           <div className="shop d-flex justify-content-center flex-column py-3">
                   <h1>{greeting}</h1>
-                  <div className='container-fluid' style={{width: "70vw"}}>
-                    {datos!==[]?<ItemList onAdd={handleCallback} data={datos} type={type}/>:null}
-                    {spinner?<Spinner/>:null}
+                  <div className='container-fluid' style={{minWidth: "70vw"}}>
+                    {<ItemList data={datos} type={type}/>||<Spinner/>}
                   </div>
           </div>
         </div>
-
         </>
     )
 

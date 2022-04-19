@@ -1,0 +1,69 @@
+.botones{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+    min-width: 90px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box{
+    position: relative;
+    width: 80px;
+    height: 50px;
+    border-radius: 40px;
+    border: 2px solid #000d0f;
+    transition: 500ms;
+}
+.botones:hover .box{
+    width: 120px;
+    border: 2px solid #000d0f;
+}
+
+.botones .right{
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    z-index: 1;
+    transform:  translateY(-50%) rotate(135deg);
+    cursor:pointer;
+    opacity:0;
+    transition: 0.5s;
+}
+.botones .left{
+    position: absolute;
+    top: 30%;
+    left: 30px;
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    z-index: 1;
+    transform:  translateY(50%) rotate(-45deg);
+    cursor:pointer;
+    opacity:0;
+    transition: 0.5s;
+}
+.botones:hover .right{
+    opacity: 1;
+}
+.botones:hover .left{
+    opacity: 1;
+}
+
+.box span{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 46px;
+    color: rgb(10, 47, 35);
+}

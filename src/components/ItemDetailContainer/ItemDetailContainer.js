@@ -1,12 +1,19 @@
 import ItemDetail from '../ItemDetail/ItemDetail';
+import './ItemDetailContainer.css'
 
-const ItemDetailContainer = ({onAdd}) => {
+const ItemDetailContainer = () => {
+
+    const handleCallback = (event)=>{
+        console.log(`Recibiendo evento en ItemDetailContainer: ${JSON.str(event)}`)
+      }
 
     return (
         <>
-            <div className="d-flex justify-content-between mx-auto mt-3 flex-column" style={{width: "40rem"}}>
-                <ItemDetail/>
-            </div>
+        <div className="detailContainer">
+            <div className="d-flex mx-auto mt-3">
+                <ItemDetail />
+            </div>     
+        </div>
         </>
     )
   } 

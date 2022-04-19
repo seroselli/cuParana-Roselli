@@ -1,0 +1,50 @@
+.boxItem {
+  min-height: 12rem;
+  padding: 0 !important;
+}
+
+.cardItem {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 248);
+}
+
+.containerImg{
+    width: 17vw;
+    height: 10vw;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(158, 158, 158, 0.761);
+    margin: 0 auto;
+}
+
+.containerImg img{
+    width: 100%;
+    height: auto;
+}
+
+.cardItem:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.285);
+}
+
+.cardText {
+  padding: 2px 1vw;
+  width: 16vw;
+}
+
+.cardText p{
+  width: 17vw;
+}
+
+.StockyPrecio{
+  display: flex;
+  justify-content: space-between;
+  max-width: 17vw;
+  margin: 0;
+  padding: 0;
+}

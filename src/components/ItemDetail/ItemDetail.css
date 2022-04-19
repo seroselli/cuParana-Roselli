@@ -1,0 +1,13 @@
+.boxCard{
+        border-radius: 10px;
+        outline: solid rgba(0, 0, 0, 0.11) 1px;
+        padding: 2rem;
+}
+.linea{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.11);
+    width: 90%;
+    height: 1px;
+}

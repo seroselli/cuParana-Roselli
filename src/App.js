@@ -5,10 +5,12 @@ import {useState } from 'react';
 import {getDatosbyId} from './db/asyncmock.js'
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import MsgBox from './components/MsgBox/MsgBox';
 
 function App() {
 
   const [cartList, setCartList] = useState([{id: 0, nombre: "Empty Cart", precio: null, cantidad: null}]);
+
   const [count, setCount] = useState(0);
 
 
@@ -31,7 +33,7 @@ function App() {
         setCartList(aux) 
     }
   }
-  
+
   return (
     <BrowserRouter>
       <NavBar marca="Cupcakes Paraná" cant={count} lista={cartList}/>
@@ -42,9 +44,13 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+}//<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>
 
 export default App;
 
 
 
+function toggleMsgBox(){
+  let msgbox = document.getElementById('msgbox1')
+  msgbox.style.display = msgbox.style.display=== "block" ? "none":"block"
+}

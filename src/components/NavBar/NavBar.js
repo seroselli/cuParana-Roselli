@@ -2,15 +2,19 @@ import CartWidget from "../CartWidget/CartWidget"
 import './NavBar.css'
 import { useEffect, useState } from "react"
 import { logo } from "../../assets/images"
+import CartList from "../CartList/CartList"
 
 const NavBar = ({marca,cant,lista}) =>{
-
 
   const [count,setCount] = useState(0)
 
   useEffect(()=>{
     setCount(cant+count)
   },[cant])
+
+  function openCartList(){
+    document.getElementById("CartList")
+  }
   
       return (
           <nav className="navbar navbar-expand-lg">
@@ -22,10 +26,10 @@ const NavBar = ({marca,cant,lista}) =>{
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item ms-3">
-                <a className="text-decoration-none" href="/cupcakes">Cupcakes</a>
+                <a className="text-decoration-none" href="/cupcakes" style={{color:"white"}}>Cupcakes</a>
                 </li>
                 <li className="nav-item ms-3">
-                <a className="text-decoration-none" href="/cakes">Minicakes</a>
+                <a className="text-decoration-none" href="/cakes" style={{color:"white"}}>Minicakes</a>
                 </li>
               </ul>
               <div className="ms-auto d-flex allign-middle">
