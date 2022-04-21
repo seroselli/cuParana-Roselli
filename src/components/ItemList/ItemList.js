@@ -17,8 +17,8 @@ const ItemList = ({type, data}) => {
                 {
                 datos.map(item =>
                     <>
-                    {type=="cupcakes"?item.id<1000?<Item data={item} type={type} key={item.id}/>:null:null}
-                    {type=="cakes"?item.id>=1000?<Item data={item} type={type} key={item.id}/>:null:null}
+                    {type=="cupcakes"?item.id<1000?<Item data={item} type={type} key={"cupcake"+item.id}/>:null:null}
+                    {type=="cakes"?item.id>=1000?<Item data={item} type={type} key={"cake"+item.id}/>:null:null}
                     {type!=="cakes"&& type!=="cupcakes"?<Item data={item} type={type} key={"item"+item.id}/>:null}
                     </>
                 )

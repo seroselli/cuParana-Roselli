@@ -3,9 +3,6 @@ import './ItemDetailContainer.css'
 
 const ItemDetailContainer = () => {
 
-    const handleCallback = (event)=>{
-        console.log(`Recibiendo evento en ItemDetailContainer: ${JSON.str(event)}`)
-      }
 
     return (
         <>

@@ -1,21 +1,10 @@
 import CartWidget from "../CartWidget/CartWidget"
 import './NavBar.css'
-import { useEffect, useState } from "react"
 import { logo } from "../../assets/images"
-import CartList from "../CartList/CartList"
 
-const NavBar = ({marca,cant,lista}) =>{
+const NavBar = ({marca}) =>{
 
-  const [count,setCount] = useState(0)
 
-  useEffect(()=>{
-    setCount(cant+count)
-  },[cant])
-
-  function openCartList(){
-    document.getElementById("CartList")
-  }
-  
       return (
           <nav className="navbar navbar-expand-lg">
           <div className="container-fluid">
@@ -33,7 +22,7 @@ const NavBar = ({marca,cant,lista}) =>{
                 </li>
               </ul>
               <div className="ms-auto d-flex allign-middle">
-                <CartWidget contador={count}/>
+                <CartWidget/>
               </div>
             </div>
           </div>
@@ -41,6 +30,3 @@ const NavBar = ({marca,cant,lista}) =>{
     ) 
 }
 export default NavBar
-
-
-/* <CartList list={lista}/> */

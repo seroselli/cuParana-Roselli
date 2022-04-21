@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDatosbyId } from '../../db/asyncmock';
+import { CartContext } from '../CartContext/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
-const ItemDetail = ({onAdd}) => {
+const ItemDetail = () => {
+
+    const { addItem, cartList } = useContext(CartContext)
     
     const [item,setItem] = useState()
     const {itemId} = useParams()
@@ -25,10 +28,11 @@ const ItemDetail = ({onAdd}) => {
 
     const handleEvent = (evento) =>{
         if(evento>0){
+            addItem({...item,quantity:evento})
             setCount(evento)
             setbtnCount(false)
         }
-        console.log("Hemos recibido el evento en ItemDetail :" + evento)
+    
     }
 
     const itemDetail = (
@@ -43,7 +47,7 @@ const ItemDetail = ({onAdd}) => {
                     <p >{item===undefined?null:item.descripcion} </p>
                     <p >Stock: {item===undefined?null:item.stock} </p>
                     <p style={{color:"green"}}>Envío gratis</p>
-                    {btnCount?<ItemCount onAdd={handleEvent} stock={item===undefined?null:item.stock}  initial="1" type="buttons" id={item===undefined?null:item.id}/>:<a className='btn btn-success mx-auto' href='/cart'>Terminar Compra</a>}
+                    {btnCount?<ItemCount onAdd={handleEvent} stock={item===undefined?null:item.stock}  initial="1" type="buttons" id={item===undefined?null:item.id}/>:<a className='btn btn-success mx-auto' onClick={()=>{console.log(cartList)}}>Terminar Compra</a>}
                     
                 </div>
                 <div className="linea"></div>

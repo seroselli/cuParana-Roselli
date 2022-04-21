@@ -11,8 +11,6 @@ const ItemCount = ({id,stock,initial,onAdd}) => {
         e.preventDefault()
         onAdd(count)
     }
-
-
     function sumar() {
         if(count<stock)
             {setCount(count+1)}
@@ -46,10 +44,3 @@ const ItemCount = ({id,stock,initial,onAdd}) => {
 
 
 export default ItemCount
-
-/*                        <button className="btn btn-outline-danger me-auto px-4" type='button' onClick={()=>{count>1?setCount(count-1):setCount(1)}}>-</button>
-                        <div className="align-middle px-3 my-auto fw-bold">
-                            {stock!==0?`${count}/${stock}`:"sin stock"}
-                        </div>
-                        <button  className="btn btn-outline-success ms-auto px-4" type='button' onClick={()=>{count<estock?setCount(count+1):setCount(estock)}}>+</button>
-                   */
