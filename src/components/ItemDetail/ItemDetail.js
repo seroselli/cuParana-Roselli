@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getDatosbyId } from '../../db/asyncmock';
 import { CartContext } from '../CartContext/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
@@ -47,8 +47,7 @@ const ItemDetail = () => {
                     <p >{item===undefined?null:item.descripcion} </p>
                     <p >Stock: {item===undefined?null:item.stock} </p>
                     <p style={{color:"green"}}>Envío gratis</p>
-                    {btnCount?<ItemCount onAdd={handleEvent} stock={item===undefined?null:item.stock}  initial="1" type="buttons" id={item===undefined?null:item.id}/>:<a className='btn btn-success mx-auto' onClick={()=>{console.log(cartList)}}>Terminar Compra</a>}
-                    
+                    {btnCount?<ItemCount onAdd={handleEvent} stock={item===undefined?null:item.stock}  initial="1" type="buttons"/>:<Link to="/cart" className='btn btn-success mx-auto'>Terminar Compra</Link>}
                 </div>
                 <div className="linea"></div>
             </div>

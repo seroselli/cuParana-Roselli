@@ -1,15 +1,19 @@
-import {useState } from 'react'
+import {useContext, useState } from 'react'
+import { CartContext } from '../CartContext/CartContext';
 import './ItemCount.css'
 
-const ItemCount = ({id,stock,initial,onAdd}) => {
+const ItemCount = ({id,stock,initial,type}) => {
     let eInitial = (stock===0) ? "sin stock" : parseInt(initial);
     
     const [count,setCount] = useState(eInitial)
+    const {addItem,toggleCartContainer} = useContext(CartContext)
 
-
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
-        onAdd(count)
+        addItem({id:id,quantity:count})
+        setTimeout(() => {
+            toggleCartContainer()
+        }, 200);
     }
     function sumar() {
         if(count<stock)
@@ -35,9 +39,11 @@ const ItemCount = ({id,stock,initial,onAdd}) => {
                         </div>
                     </div>
             </div>
+            {type!=="cartButtons"?
             <div className="d-flex w-100">
                 <button className='w-100 btn btn-outline-dark mt-3' type='submit'>Add to Cart</button>
             </div>
+            :null}   
         </form>
     )
 }

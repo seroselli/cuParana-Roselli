@@ -2,6 +2,7 @@ nav{
     display: flex;
     background-color: #011c20;
     height: 50px;
+    z-index: 1000!important;
 }
 
 .marca{
@@ -33,4 +34,14 @@ nav{
 
 .tam{
     width: 300px;
+}
+
+
+.search{
+    width: 500px;
+}
+.search input{
+    width: 100%;
+    height: fit-content;
+    text-align: start;
 }

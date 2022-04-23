@@ -7,16 +7,20 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import MsgBox from './components/MsgBox/MsgBox';
 import CartProvider from './components/CartContext/CartContext';
+import Home from './components/Home/Home';
 
 function App() {
+
+
 
   return (
   
   <CartProvider>
-    <NavBar marca="Cupcakes Paraná"/>
       <BrowserRouter>
+      <NavBar marca="Cupcakes Paraná"/>
         <Routes>
-            <Route exact path="/" element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
+            <Route exact path="/" element={<Home/>}/>
+            <Route exact path="/tienda" element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
             <Route exact path="/:category" element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
             <Route exact path="/item/:itemId" element={<ItemDetailContainer/>}/>
         </Routes>

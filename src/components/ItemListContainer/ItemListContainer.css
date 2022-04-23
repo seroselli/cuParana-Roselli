@@ -1,5 +1,4 @@
 .shop{
-
     text-align: center;
 }
 
@@ -8,8 +7,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./../../assets/buttercream.jpg');
+    /*background-image: url('./../../assets/buttercream.jpg');*/
+    background-color: #1c200128;
     min-height: 100vh;
+    color: white!important;
 }
 
 .icono{
@@ -23,4 +24,22 @@ ul li Link{
 
 .icono:hover{
     transform: scale(1.2);
+}
+
+.filters{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 248);
+    color: #011c20!important;
+    text-align: start;
+}
+
+
+.filters ul{
+    list-style: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.168);
 }
