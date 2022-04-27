@@ -1,29 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Item from '../Item/Item';
 
 const ItemList = ({type, data}) => {
-    
   const [datos,setDatos] = useState(data)
-
-  const [category,setCategory] = useState(type)
   useEffect(()=>{
     setDatos(data)
-    setCategory(type)
     },[type,data])
 
     
     return (
         <>
             <div className="row d-flex justify-content-evenly" >
-                {
-                datos.map(item =>
-                    <>
-                          {category==="cupcakes"&&item.id<1000?<Item data={item} key={"item"+item.id}/>:null}
-                          {category==="cakes"&&item.id>=1000?<Item data={item} key={"item"+item.id}/>:null}
-                          {category!=="cakes"&&category!=="cupcakes"?<Item data={item} key={"item"+item.id}/>:null}
-                    </>
-                )
-                }
+              {
+                type=="tienda"? 
+                datos.map(item=>
+                  <Item data={item} key={"shop"+item.id}/>
+                 ):datos.map(item=>type==item.categoryId?<Item data={item} key={item.categoryId+"-"+item.id}/>:null)
+              }
             </div>
         </>
     )
@@ -31,7 +25,3 @@ const ItemList = ({type, data}) => {
 
 
 export default ItemList
-
-/*                    {type=="cupcakes"?item.id<1000?<Item data={item} type={type} key={"cupcake"+item.id}/>:null:null}
-                    {type=="cakes"?item.id>=1000?<Item data={item} type={type} key={"cake"+item.id}/>:null:null}
-                    {type!=="cakes"&& type!=="cupcakes"?<Item data={item} type={type} key={"item"+item.id}/>:null}*/

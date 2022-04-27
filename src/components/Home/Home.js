@@ -1,20 +1,57 @@
+import { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { DBContext } from '../DBContext/DBContext'
 import './Home.css'
 
+const Home = ({}) => {
+    const {refreshDB} = useContext(DBContext)
 
-const Home = () => {
+    const images = ["https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake1.jpg?alt=media&token=8907b18b-767b-4cd2-9901-4f0083260860","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake2.jpg?alt=media&token=5aadcfb8-36c0-47f8-b97e-c000a0df422f","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake3.jpg?alt=media&token=e59de9d9-20a0-4205-8c97-67510043e25f","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake4.jpg?alt=media&token=3c86f39f-a628-4c90-99cb-666e2b7db469","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcake1.png?alt=media&token=13fb6b4a-50f8-4d03-b9cc-f199a766b896","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcake2.jpg?alt=media&token=ab314859-7a70-498c-950d-9c6a6d138707"]
+
+    const [i, setI] = useState(0)
+
+    useEffect(() => {
+        refreshDB()
+    }, [])
+    
     return(
         <>
         <header>
-            <h1 style={{color:"white"}}>Bienvenido a Cupcakes Paraná</h1>
+            <div className="franja">
+                <div className="itemContainer">
+                    <img src={images[i]} className="item" alt="imagen" />
+                </div>
+            </div>
         </header>
         <div id="home">
-
             <article>
                 <section>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic tempora aliquid corporis magnam consectetur minima ipsam provident, atque perferendis eos iure accusantium fugit totam tenetur corrupti sequi ut, ab velit voluptas, doloremque ullam dolore at. Quo inventore porro, est explicabo facere libero error aspernatur animi sequi architecto impedit at, sapiente nesciunt quibusdam hic facilis quam nemo distinctio cupiditate magnam. Asperiores minus et officiis consequuntur veniam rerum velit assumenda eaque omnis incidunt minima sequi tempora vel reiciendis, eligendi, commodi enim repellendus amet? Aspernatur possimus ipsa error optio rem dicta facilis in voluptas, at consequuntur perspiciatis, suscipit quod maxime asperiores iste, consectetur tenetur et porro necessitatibus veritatis alias nobis excepturi iure. Quis temporibus, soluta tempora doloribus, provident eaque ex explicabo debitis earum facere magni ducimus vero totam amet numquam officiis, voluptates exercitationem inventore qui corrupti? Cumque, laboriosam quia rem tempora asperiores facilis in. Eligendi, non! Commodi nemo minus rem officiis explicabo hic animi architecto provident sequi, sunt ratione voluptas quia fugit sapiente voluptates? Repellat perspiciatis inventore provident. Voluptatibus, sed itaque? Aliquid necessitatibus libero culpa quae laudantium dolorem voluptatibus, illo ea placeat laboriosam, facere, nostrum harum assumenda sequi possimus facilis recusandae! Atque fugit eveniet ipsum expedita libero nihil et voluptates doloremque eius pariatur tempore non, at quo ea esse quis quas consequuntur earum praesentium tenetur iure laudantium repellat! Aspernatur enim nisi explicabo quisquam! Enim sint doloremque beatae doloribus, sapiente omnis. Voluptas quam sunt, incidunt accusamus est ab dolorem a veniam obcaecati optio nemo vero voluptatibus numquam corrupti placeat illum autem cupiditate, odio culpa beatae nulla! Maiores vitae ipsam inventore temporibus nostrum enim at ducimus accusamus, obcaecati ut illum saepe nulla numquam quasi omnis consectetur mollitia unde eaque assumenda. Vero sed ad distinctio cum impedit eos corporis dignissimos ratione natus? Quisquam odio architecto animi at obcaecati iste aperiam corrupti blanditiis, dicta sint perspiciatis possimus explicabo ullam quo suscipit nam veniam repudiandae quasi voluptatibus ea doloribus ratione amet voluptatum. Suscipit, a totam incidunt in facere ad fuga ex amet vero perspiciatis repellendus voluptas tempore placeat sint impedit inventore quaerat? Tempora esse eos mollitia, odio fugit labore vitae eum est error. Voluptatum obcaecati tempore voluptate officia voluptas odio magni vitae, error nemo eaque omnis, recusandae aliquid ab corrupti? Tempora nisi eius doloribus quisquam, culpa laboriosam velit recusandae quae nesciunt architecto similique eos, explicabo amet illo. Non dolores vitae tempora accusamus culpa inventore magni labore. Consequatur officia enim nemo earum inventore fuga, obcaecati atque dolorem ratione dolore eum et similique? Itaque tempora labore enim rem optio sed deserunt voluptate laborum, voluptas ipsum veritatis nemo autem fugiat repellendus fuga esse molestiae ex cum natus maiores quibusdam vel. Quos libero similique, odit architecto temporibus laudantium aperiam odio? Sint nulla aut, consectetur optio excepturi aliquam cumque aperiam fugiat soluta quia voluptate explicabo. Omnis, quis vero? Dolorem consequatur illum ducimus maiores cumque. Amet earum accusantium vitae ipsam laboriosam temporibus, perspiciatis consectetur dignissimos, in est fugit omnis voluptatum! Labore quam molestias amet qui aspernatur, mollitia provident beatae vel, tenetur ullam ratione error laborum quas numquam harum quasi molestiae optio, delectus porro? Nobis iste laudantium nihil, autem ipsum cumque. Omnis iste possimus modi quisquam culpa recusandae accusantium. Fuga rerum maiores magni sit! Et voluptatum quisquam optio libero nemo, rem itaque quaerat corporis consequatur alias repudiandae error laboriosam nulla quam reiciendis doloribus odit harum ducimus veritatis facilis quibusdam asperiores. Rerum ex porro nulla, provident quia, voluptatum facere ullam modi iusto, alias corporis nemo excepturi quae voluptate quas vel soluta impedit accusamus consectetur laboriosam. Quisquam aut placeat dolor qui numquam dolorem voluptatem odit ipsum voluptate, nobis explicabo aspernatur pariatur sequi quo modi? Odit, a nisi, assumenda beatae voluptatum odio sint minus rerum quos quia repellat nulla distinctio at tempore sequi inventore consequatur facilis modi quod ab quas obcaecati ea. Accusamus nulla sapiente alias nisi suscipit illum repellendus dignissimos esse eveniet? Velit, voluptate voluptatibus laudantium neque veniam ab laboriosam nesciunt beatae error! Dolorem eum sapiente alias voluptates accusamus, quasi eaque totam fugiat, veritatis asperiores id voluptate dolorum ea repellendus commodi omnis, facere molestiae error officia iste quas dolores. Sequi atque eum harum voluptate sapiente asperiores repellendus accusantium esse debitis perferendis laudantium non iure laborum architecto, quia aliquam possimus repellat aliquid! Optio ex velit aspernatur numquam perspiciatis neque iusto voluptate id quo itaque iste temporibus blanditiis, ad placeat tempore eaque, accusamus dignissimos ipsum nisi similique molestias officiis dolorum. Nulla debitis id libero enim at, eaque nisi commodi dolor odit, quia magnam ipsum tenetur ea facere dolore doloremque atque repudiandae voluptatum consequuntur dolorum. Quia quis voluptatibus fugit repellendus, corporis similique eius! Repellendus molestias dolorum rem iste laboriosam, quasi mollitia esse expedita natus corporis iusto provident error harum consequuntur nisi animi architecto nulla. Quaerat error minima reiciendis nisi nobis fuga pariatur dolorum tempora sunt blanditiis non inventore, praesentium, dicta doloremque dolor quos totam eos similique exercitationem excepturi, quibusdam commodi? Sint, corrupti libero minus sunt animi consequuntur quo, a facilis provident adipisci rem velit dolorum! Nostrum pariatur suscipit saepe itaque aut exercitationem tenetur, voluptatem asperiores id reprehenderit illo necessitatibus quis. Corrupti sapiente quaerat veritatis minima, obcaecati consequatur unde, adipisci amet odit tempora assumenda possimus est. Libero laborum, harum, reprehenderit dolorum nulla facilis explicabo nihil corporis porro eius consectetur cumque quae. Similique laboriosam exercitationem sunt. Praesentium, quam repellat dolorem repudiandae vel tenetur dolores incidunt sint quas. Repudiandae optio dolorum asperiores, accusamus repellendus consectetur. Impedit ducimus est, aperiam atque consequuntur nisi quia ullam, maxime magni praesentium laboriosam obcaecati commodi, aliquid recusandae repellendus distinctio sunt consectetur. Harum molestias laborum voluptas quibusdam ut veniam possimus deleniti tenetur, nam ipsum quae porro atque labore in recusandae necessitatibus dolor consequuntur reiciendis tempore natus numquam at est eaque. Nisi assumenda voluptatum officiis totam saepe nostrum laboriosam, voluptatibus odio blanditiis voluptas, molestias cupiditate possimus maxime molestiae debitis minus, provident quo repellat ullam impedit recusandae! Voluptas exercitationem quis reprehenderit provident molestias debitis perspiciatis perferendis sequi inventore hic, minima suscipit sed, quo ut animi dicta cupiditate et tempore natus qui quae vero laborum rerum officia? Iusto magni, perferendis distinctio molestias quas quia libero nulla tempore non laborum placeat similique nobis adipisci quibusdam quo ipsa! Doloremque corporis quaerat magnam praesentium dolor?</p>
-                </section>
-                <section>
-
+                    <div className="container justify-content-evenly d-flex flex-column">
+                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}} >
+                            <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
+                            <div className="d-flex p-0 w-auto boton">
+                                <svg className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M20 7h-4v-3c0-2.209-1.791-4-4-4s-4 1.791-4 4v3h-4l-2 17h20l-2-17zm-11-3c0-1.654 1.346-3 3-3s3 1.346 3 3v3h-6v-3zm-4.751 18l1.529-13h2.222v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h2.222l1.529 13h-15.502z"/></svg>
+                                <h1 className='my-auto ms-4'>Tienda</h1>
+                            </div>
+                            </Link>
+                        </div>
+                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}}>
+                        <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
+                            <div className="d-flex p-0 w-auto boton">
+                            <svg  className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>                            
+                            <h1 className='my-auto ms-4'>Contacto</h1>
+                            </div>
+                        </Link>
+                        </div>
+                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}}>
+                        <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
+                            <div className="d-flex p-0 w-auto boton ">
+                                <svg className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M21 14h.004l1.996 4h-2v4h2v2h-22v-2h2v-4h-2l1.996-4h.004v-14h18v14zm-12 5h-4v4h4v-4zm10 0h-4v4h4v-4zm-5 0h-4v4h4v-4zm6.386-4h-16.772l-1 2h18.772l-1-2zm-1.386-13h-14v11h14v-11zm-12 7h2v2h-2v-2zm4 0h2v2h-2v-2zm6 0v2h-2v-2h2zm-10-3h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-8-3h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>                            
+                                <h1 className='my-auto ms-4'>Nuestras sucursales</h1>
+                            </div>
+                        </Link>
+                        </div>
+                    </div>
                 </section>
             </article>
             <aside>
@@ -33,3 +70,4 @@ const Home = () => {
 }
 
 export default Home
+

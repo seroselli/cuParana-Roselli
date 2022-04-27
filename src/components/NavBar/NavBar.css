@@ -2,7 +2,7 @@ nav{
     display: flex;
     background-color: #011c20;
     height: 50px;
-    z-index: 1000!important;
+    z-index: 10000!important;
 }
 
 .marca{
@@ -36,12 +36,48 @@ nav{
     width: 300px;
 }
 
-
+.results{
+    width: 450px;
+    min-height: 100px;
+    max-height: 500px;
+    position: absolute;
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    top: 50px;
+    border: solid rgba(0, 0, 0, 0.087) 1px;
+    display: none;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+  
+.results ul{
+    padding: 0.1rem ;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.option{
+    width: 100%;
+    height: 45px;
+    text-align: start;
+    vertical-align: middle;
+    list-style: none;
+    padding-left: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+.option:hover{
+    background-color:#011c2030;
+}
 .search{
     width: 500px;
+    
 }
 .search input{
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     text-align: start;
 }

@@ -1,21 +1,29 @@
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 import { CartContext } from '../CartContext/CartContext';
+import { DBContext } from '../DBContext/DBContext';
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({greeting,types}) => {
 
-  const [type,setType] = useState("")
-  const {category} = useParams()
+  const navigate = useNavigate()
+  const [type,setType] = useState(types)
+  const {categoryId} = useParams()
 
-  const {datos,spinner} = useContext(CartContext)
+  const {db,spinner, refreshDB} = useContext(DBContext)
 
     useEffect(()=>{
-      setType(category)
-    },[category])
+      if(categoryId===undefined){
+        setType("tienda")
+      }
+      else{
+        setType(categoryId)
+      }
+      
+    },[categoryId])
 
     return (
         <>
@@ -25,11 +33,11 @@ const ItemListContainer = ({greeting}) => {
                   <div className="row">
                     <div className="col-3">
                       <div className="filters mt-3 p-3">
-                       <b>Tienda  {category===undefined?null:'>'} {category}</b> 
+                       <b>Tienda  {categoryId===undefined?null:'>'} {categoryId==1?"Cupcakes":categoryId==2?"Cakes":null}</b> 
                         <ul>
                           <h4>Category</h4>
-                          <li><Link to="/cupcakes" style={category==="cupcakes"?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>Cupcakes</Link></li>
-                          <li><Link to="/cakes" style={category==="cakes"?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>MiniCakes</Link></li>
+                          <li><Link to="/category/1" style={categoryId==1?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>Cupcakes</Link></li>
+                          <li><Link to="/category/2" style={categoryId==2?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>MiniCakes</Link></li>
                         </ul>
                         <ul>
                           <h4>Ingredientes</h4>
@@ -42,7 +50,7 @@ const ItemListContainer = ({greeting}) => {
                       </div>
                     </div>
                     <div className='container-fluid col-9'>
-                      {!spinner?<ItemList data={datos} type={type}/>:<Spinner/>}
+                      {!spinner?<ItemList data={db} type={type}/>:<Spinner/>}
                     </div>
                   </div>
           </div>

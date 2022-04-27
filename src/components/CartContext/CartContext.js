@@ -1,22 +1,15 @@
-import { createContext, useEffect, useMemo, useState } from "react"
-import { getItems } from "../../db/asyncmock"
+import { createContext, useContext, useEffect, useMemo, useState } from "react"
+import { DBContext } from "../DBContext/DBContext";
 
 export const CartContext = createContext()
 
+
+
 const CartProvider = ( { defaultValue = [] , children }) => {
 
-    const [datos,setDatos] = useState([])
-    const [spinner,setSpinner] = useState(true)
+  const {db} = useContext(DBContext)
     
-    useEffect(async()=>{
-      await getItems().then(data=>{
-            setDatos(data)
-            setSpinner(false) 
-          })
-      },[])
-
-
-    const [cartList,setCartList] = useState(()=>{
+        const [cartList,setCartList] = useState(()=>{
         try {
           let cart = localStorage.getItem('cartList');
           return cart ? JSON.parse(cart):[];
@@ -24,6 +17,7 @@ const CartProvider = ( { defaultValue = [] , children }) => {
           return [];
         }
       })
+
       const [ counter,setCounter ] = useState(0)
       useEffect(() => {
         localStorage.setItem('cartList', JSON.stringify(cartList))
@@ -31,46 +25,50 @@ const CartProvider = ( { defaultValue = [] , children }) => {
       }, [cartList])
 
       const addItem = (evento)=>{
-          
-        if(!isInCart(evento.id)){
-            let aux = cartList
-            aux.push(evento)
-            setCartList(aux)
-            setCounter(cartList.length)
+         let cartListCopy = cartList  
+        if(isInCart(evento.id)){
+            let newQuantity = cartListCopy.find(element => element.id === evento.id).quantity + evento.quantity
+            modifyItem(evento.id,newQuantity)
         }
         else{
-            let cartListCopy = cartList
-            let indexOf = cartListCopy.findIndex(item=>item.id === parseInt(evento.id))
-            cartListCopy[indexOf].quantity += evento.quantity
+            let newItem = db.find(element=>element.id == evento.id)
+            newItem.quantity = evento.quantity
+            newItem.subtotal = (parseFloat(newItem.price) * parseInt(evento.quantity))
+            cartListCopy.push(newItem)
             setCartList(cartListCopy)
         }
+        setCounter(cartList.length)
+        localStorage.setItem("cartList",JSON.stringify(cartList))
+    }
+
+    const modifyItem = (ide,quant)=>{
+      let cartListCopy = cartList  
+     if(isInCart(ide)){
+        let indexOf = cartListCopy.findIndex(element => element.id == ide)
+        cartListCopy[indexOf].quantity = quant
+        cartListCopy[indexOf].subtotal = parseFloat(parseInt(quant) * parseFloat(cartListCopy[indexOf].price))
+        setCartList(cartListCopy)
+     }
     }
 
     const removeItem = async (itemId)=>{
+        let cartListCopy = cartList  
         if(isInCart(itemId)){
-            let aux = cartList
-            let index;
-            for (let i = 0; i < aux.length; i++) {
-                if(aux[i].id === parseInt(itemId)){
-                    index = i
-                }
-            }
-            setTimeout(() => {
-                aux.splice(index,1)
-                setCartList(aux)  
-            }, 100); 
+            let indexOf = cartList.findIndex(element => element.id === itemId)
+            cartListCopy.splice(indexOf,1)
+            setCartList(cartListCopy)
         }
+        setCounter(cartList.length)
     }
 
     const clear =  ()=>{
         setCartList([])
+        localStorage.removeItem('cartList')
     }
 
-    const isInCart = (id) =>{
-        let inCart = cartList.find(element=>element.id === parseInt(id))
-        return Boolean(inCart);
+    const isInCart = (ide) =>{
+        return cartList.findIndex(element=>element.id==ide)>=0?true:false;
     }
-
 
     async function toggleCartContainer(){
         let aux = document.getElementById("cartContainer")
@@ -98,13 +96,11 @@ const CartProvider = ( { defaultValue = [] , children }) => {
         addItem,
         removeItem,
         clear,
-        isInCart,
         counter,
-        datos,
-        spinner,
-        toggleCartContainer
+        toggleCartContainer,
+        modifyItem
         }
-    },[cartList,datos,spinner,counter])
+    },[cartList,counter,addItem,removeItem,modifyItem])
 
 
 

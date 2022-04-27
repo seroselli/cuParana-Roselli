@@ -1,4 +1,4 @@
-import {useContext, useState } from 'react'
+import {useContext, useEffect, useState } from 'react'
 import { CartContext } from '../CartContext/CartContext';
 import './ItemCount.css'
 
@@ -6,28 +6,39 @@ const ItemCount = ({id,stock,initial,type}) => {
     let eInitial = (stock===0) ? "sin stock" : parseInt(initial);
     
     const [count,setCount] = useState(eInitial)
-    const {addItem,toggleCartContainer} = useContext(CartContext)
+
+    useEffect(() => {
+        if(type==="cartButtons"){
+            modifyItem(id,count)
+        }    
+    }, [count])
+    
+    const {addItem,toggleCartContainer,modifyItem} = useContext(CartContext)
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        addItem({id:id,quantity:count})
-        setTimeout(() => {
-            toggleCartContainer()
-        }, 200);
+            addItem({id:id,quantity:count})
+            setTimeout(() => {
+                toggleCartContainer()
+            }, 200);
     }
-    function sumar() {
+    
+    async function sumar() {
         if(count<stock)
             {setCount(count+1)}
         if(count===stock)
             {setCount(stock)}
     }
     
-    function restar() {
-        if(count>initial)
+    async function restar() {
+        if(count>1)
             {setCount(count-1)}
-        if(count===initial)
-            {setCount(initial)}
+        if(count===1)
+            {setCount(1)}
     }
+
+
+
     return (
         <form onSubmit={handleSubmit}>
             <div className='d-flex allign-center w-100' style={eInitial!=="sin stock"?null:{pointerEvents:"none"}}>
@@ -37,7 +48,7 @@ const ItemCount = ({id,stock,initial,type}) => {
                         <div className="box">
                             <span>{count}</span>
                         </div>
-                    </div>
+            </div>
             </div>
             {type!=="cartButtons"?
             <div className="d-flex w-100">
