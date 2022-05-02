@@ -1,72 +1,61 @@
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { DBContext } from '../DBContext/DBContext'
 import './Home.css'
 
 const Home = ({}) => {
+    const navigate = useNavigate()
     const {refreshDB} = useContext(DBContext)
 
-    const images = ["https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake1.jpg?alt=media&token=8907b18b-767b-4cd2-9901-4f0083260860","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake2.jpg?alt=media&token=5aadcfb8-36c0-47f8-b97e-c000a0df422f","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake3.jpg?alt=media&token=e59de9d9-20a0-4205-8c97-67510043e25f","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcake4.jpg?alt=media&token=3c86f39f-a628-4c90-99cb-666e2b7db469","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcake1.png?alt=media&token=13fb6b4a-50f8-4d03-b9cc-f199a766b896","https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcake2.jpg?alt=media&token=ab314859-7a70-498c-950d-9c6a6d138707"]
-
-    const [i, setI] = useState(0)
-
-    useEffect(() => {
+    useEffect(async() => {
+        document.getElementById("parallax").style.opacity = 1
         refreshDB()
-    }, [])
-    
-    return(
-        <>
-        <header>
-            <div className="franja">
-                <div className="itemContainer">
-                    <img src={images[i]} className="item" alt="imagen" />
-                </div>
-            </div>
-        </header>
-        <div id="home">
-            <article>
-                <section>
-                    <div className="container justify-content-evenly d-flex flex-column">
-                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}} >
-                            <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
-                            <div className="d-flex p-0 w-auto boton">
-                                <svg className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M20 7h-4v-3c0-2.209-1.791-4-4-4s-4 1.791-4 4v3h-4l-2 17h20l-2-17zm-11-3c0-1.654 1.346-3 3-3s3 1.346 3 3v3h-6v-3zm-4.751 18l1.529-13h2.222v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h2.222l1.529 13h-15.502z"/></svg>
-                                <h1 className='my-auto ms-4'>Tienda</h1>
-                            </div>
-                            </Link>
-                        </div>
-                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}}>
-                        <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
-                            <div className="d-flex p-0 w-auto boton">
-                            <svg  className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>                            
-                            <h1 className='my-auto ms-4'>Contacto</h1>
-                            </div>
-                        </Link>
-                        </div>
-                        <div className="row ps-4 text-start my-5" style={{maxHeight:"200px"}}>
-                        <Link to={"/tienda"} style={{textDecoration:"none", color:"white"}}>
-                            <div className="d-flex p-0 w-auto boton ">
-                                <svg className='my-auto' xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="35" height="35" viewBox="0 0 24 24"><path d="M21 14h.004l1.996 4h-2v4h2v2h-22v-2h2v-4h-2l1.996-4h.004v-14h18v14zm-12 5h-4v4h4v-4zm10 0h-4v4h4v-4zm-5 0h-4v4h4v-4zm6.386-4h-16.772l-1 2h18.772l-1-2zm-1.386-13h-14v11h14v-11zm-12 7h2v2h-2v-2zm4 0h2v2h-2v-2zm6 0v2h-2v-2h2zm-10-3h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2zm-8-3h2v2h-2v-2zm4 0h2v2h-2v-2zm4 0h2v2h-2v-2z"/></svg>                            
-                                <h1 className='my-auto ms-4'>Nuestras sucursales</h1>
-                            </div>
-                        </Link>
-                        </div>
-                    </div>
-                </section>
-            </article>
-            <aside>
-                <h3>Publicidades</h3>
-                <img style={{maxWidth:"100%"}} src="https://www.decorarhogar.es/wp-content/uploads/2019/02/colores-combinan-azul-turquesa-decoracion.jpg" alt="" />
-                <p>Visita nuestra página de decoración</p>
-                <hr />
-                <img style={{maxWidth:"100%"}} src="https://www.decorarhogar.es/wp-content/uploads/2019/02/colores-combinan-azul-turquesa-decoracion.jpg" alt="" />
-                <p>Visita nuestra página de decoración</p>
-            </aside>
-        </div>
-        
-        </>
+    }, [])  
 
-    )
+        return(
+            <>
+            <div id="parallax">
+                <img style={window.screen.width<1200?{width:"100%"}:{width:"50%"}} className='mx-auto my-auto' src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Flogo_completo.png?alt=media&token=5f826704-8967-431c-8909-012ade0e6013" alt="" />
+            </div>
+            <div id="home">
+                        <div className="container-fluid row my-3 ">
+                            <div className="col p-0 d-flex foto" id="shop" onClick={()=>{window.scrollTo(0, 0);navigate("/shop")}}>
+                                <div className="shadow"></div>
+                                <div className="d-flex flex-column my-auto mx-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className='mx-auto' fill="white" width="9rem" height="9rem" viewBox="0 0 24 24"><path d="M20 7h-4v-3c0-2.209-1.791-4-4-4s-4 1.791-4 4v3h-4l-2 17h20l-2-17zm-11-3c0-1.654 1.346-3 3-3s3 1.346 3 3v3h-6v-3zm-4.751 18l1.529-13h2.222v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h6v1.5c0 .276.224.5.5.5s.5-.224.5-.5v-1.5h2.222l1.529 13h-15.502z"/></svg>
+                                    <p className='mx-auto my-auto' style={{fontSize:"5rem"}}>Shop</p>
+                                </div>
+                            </div>
+                            <div className="col p-0 d-flex foto" id="contact" onClick={()=>{navigate("/contact")}}>
+                            <div className="shadow"></div>
+                            <div className="d-flex flex-column my-auto mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" className='mx-auto' fill="white" width="9rem" height="9rem" viewBox="0 0 24 24"><path d="M12 3c5.514 0 10 3.592 10 8.007 0 4.917-5.145 7.961-9.91 7.961-1.937 0-3.383-.397-4.394-.644-1 .613-1.595 1.037-4.272 1.82.535-1.373.723-2.748.602-4.265-.838-1-2.025-2.4-2.025-4.872-.001-4.415 4.485-8.007 9.999-8.007zm0-2c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 1.418.345 2.775.503 4.059.503 7.084 0 11.91-4.837 11.91-9.961-.001-5.811-5.702-10.006-12.001-10.006zm-3.5 10c0 .829-.671 1.5-1.5 1.5-.828 0-1.5-.671-1.5-1.5s.672-1.5 1.5-1.5c.829 0 1.5.671 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5c.829 0 1.5-.671 1.5-1.5s-.671-1.5-1.5-1.5zm5 0c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5c.829 0 1.5-.671 1.5-1.5s-.671-1.5-1.5-1.5z"/></svg>                                    <p className='mx-auto my-auto' style={{fontSize:"5rem"}}>Contact</p>
+                                </div>
+                            </div>
+                            <div className="col p-0 d-flex foto" id="offices" onClick={()=>{navigate("/offices")}}>
+                            <div className="shadow"></div>
+                            <div className="d-flex flex-column my-auto mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" className='mx-auto' fill="white" width="9rem" height="9rem" viewBox="0 0 24 24"><path d="M10 9v-1.098l1.047-4.902h1.905l1.048 4.9v1.098c0 1.067-.933 2.002-2 2.002s-2-.933-2-2zm5 0c0 1.067.934 2 2.001 2s1.999-.833 1.999-1.9v-1.098l-2.996-5.002h-1.943l.939 4.902v1.098zm-10 .068c0 1.067.933 1.932 2 1.932s2-.865 2-1.932v-1.097l.939-4.971h-1.943l-2.996 4.971v1.097zm-4 2.932h22v12h-22v-12zm2 8h18v-6h-18v6zm1-10.932v-1.097l2.887-4.971h-2.014l-4.873 4.971v1.098c0 1.066.933 1.931 2 1.931s2-.865 2-1.932zm15.127-6.068h-2.014l2.887 4.902v1.098c0 1.067.933 2 2 2s2-.865 2-1.932v-1.097l-4.873-4.971zm-.127-3h-14v2h14v-2z"/></svg>
+                                <p className='mx-auto my-auto' style={{fontSize:"5rem"}}>Offices</p>
+                            </div>
+                            </div>
+                        </div>
+
+            </div>
+                <aside style={{display:"none"}}>
+                    <h3>Publicidades</h3>
+                    <img style={{maxWidth:"100%"}} src="https://www.decorarhogar.es/wp-content/uploads/2019/02/colores-combinan-azul-turquesa-decoracion.jpg" alt="" />
+                    <p>Visita nuestra página de decoración</p>
+                    <hr />
+                    <img style={{maxWidth:"100%"}} src="https://www.decorarhogar.es/wp-content/uploads/2019/02/colores-combinan-azul-turquesa-decoracion.jpg" alt="" />
+                    <p>Visita nuestra página de decoración</p>
+                </aside>
+            </>
+    
+        )
+    
+    
+    
 }
 
 export default Home

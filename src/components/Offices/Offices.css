@@ -1,0 +1,21 @@
+#buttonss ul{
+    list-style: none;
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+#buttonss ul li{
+    border-radius: 20px;
+    border: solid white 1px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: 300ms;
+   
+}
+#buttonss ul li:hover{
+background-color: aliceblue;
+color: black;
+}

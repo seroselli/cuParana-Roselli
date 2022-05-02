@@ -11,9 +11,9 @@ const ItemList = ({type, data}) => {
     
     return (
         <>
-            <div className="row d-flex justify-content-evenly" >
+            <div className="row d-flex justify-content-evenly pd-5" >
               {
-                type=="tienda"? 
+                type=="shop"? 
                 datos.map(item=>
                   <Item data={item} key={"shop"+item.id}/>
                  ):datos.map(item=>type==item.categoryId?<Item data={item} key={item.categoryId+"-"+item.id}/>:null)

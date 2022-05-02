@@ -1,63 +1,52 @@
 import { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CartContext } from "../CartContext/CartContext";
+import CheckCart from "./CheckCart/CheckCart";
+import CheckOut from "./CheckOut/CheckOut";
+import Confirmed from "./Confirmed/Confirmed";
 
 
-const BuyPage = ({data}) => {
+
+const BuyPage = (props) => {
     
-    const { cartList , counter ,db} = useContext(CartContext)
+    const {counter} = useContext(CartContext)
+    const [state,setState] = useState(0)
+    const [data,setData] = useState()
 
-    const[ total, setTotal ] = useState(0)
-
-    useEffect(() => {
-        let aux = 0;
-        cartList.forEach(element => {
-            aux +=(parseFloat(element.precio) * parseInt(element.quantity))
-        });
-      setTotal(aux)        
-    }, [cartList])
-
-
-    const handleSubmit = (e) =>{
-        e.preventDefault();
+    const handleEvent = (e) =>{
+        if(e==="checkout"){
+            setState(1)
+        }
+        else{
+            setData(e)
+            setState(2)
+        }
     }
-    return (
-        <>
-            <div className="container px-5 mt-5 text-center" style={{color:"white",minHeight:"700px"}}>
-                {counter>0?
-                <>
-                <h1 >CheckOut</h1>
-                    <div className="row mt-5">
-                        <div className="col">Article</div>
-                        <div className="col">Quantity</div>
-                        <div className="col">Subtotal</div>
-                    </div>
-                    <div className="row" style={{minHeight:"300px"}}>
-                        {cartList.map(item=>
-                            <div className="row mt-4" key={"cart"+item.id}>
-                                <div className="col">{item.nombre}</div>
-                                <div className="col">{item.quantity}</div>
-                                <div className="col">${item.quantity*item.precio}</div>
-                            </div>
-                        )}
-                            {console.log(data)}
-                         
-                    </div>
-                            
-
-                        
-
-                   <hr style={{width:"75%", marginLeft:"auto",marginRight:"auto"}}/>
-                   <div className="row" >
-                        <div className="col">Total</div>
-                        <div className="col"></div>
-                        <div className="col">${total}</div>
-                    </div>
 
 
-                </>:<h1>Empty Cart</h1>}
+    if(counter>0||state>0){
+        if(state===0){return(<CheckCart onAdd={handleEvent}/>)}
+        if(state===1){return(<CheckOut onAdd={handleEvent}/>)}
+        if(state===2){return(<Confirmed data={data}/>)}
+    }
+    else{
+        return(
+            <div className="container px-5 text-center" style={{color:"white",minHeight:"700px",marginTop:"70px!important"}}>
+            <div className="title">
+                <img  src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcakes.png?alt=media&token=17a60148-974d-4b72-ab50-740f8eb5415b" alt="" />
+                <h1 >Go by our store first</h1>
             </div>
-        </>
-    )
-  }
+            <p style={{fontSize:"11px"}}>Don't forget to tag us on social media ʕᵔᴥᵔʔ</p>
+            <div className="list-cart mt-5">
+                <h2>Empty Cart</h2>
+                <button type="button" className="btn btn-outline-info"><Link to={"/shop"} style={{textDecoration:"none", color:"black"}}><b>Go to shop</b></Link></button>
+            </div>
+        </div>
+        )
+
+    }
+
+
+}
 
   export default BuyPage

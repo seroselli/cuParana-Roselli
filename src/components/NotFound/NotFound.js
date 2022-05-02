@@ -6,7 +6,7 @@ const NotFound = (props) => {
     const navigate = useNavigate()
     useEffect(() => {
       setTimeout(() => {
-          navigate("/tienda")
+          navigate("/shop")
       }, 4000);
     }, [])
     

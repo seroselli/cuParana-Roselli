@@ -1,31 +1,20 @@
 nav{
     display: flex;
     background-color: #011c20;
-    height: 50px;
-    z-index: 10000!important;
-}
-
-.marca{
     max-height: 50px;
-    margin-left: 100px;
-    font-weight: bolder;
-    margin-top: auto;
-    margin-bottom: auto;
+    z-index: 10000!important;
+    position: fixed!important;
+    width: 100%;
+    left: 0px;
+    top: 0px;
 }
 
 .brandLogo{
-    max-height: 50px;
+    max-height: 45px;
     background-color: transparent;
     border: transparent;
 }
-.marca a:hover{
-    background-color: transparent;
-}
-.marca a img{
-    max-height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .btnLogIn{
     background-color: transparent;
     border: transparent;
@@ -70,14 +59,15 @@ nav{
 .option:hover{
     background-color:#011c2030;
 }
-.search{
-    width: 500px;
-    
+
+@media only screen and (min-width: 600px) {
+    .results{
+        width: 100%;
+    }
 }
-.search input{
-    width: 100%;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    text-align: start;
-}
+
+@media only screen and (min-width: 300px) {
+    .results{
+        width: 100%;
+    }
+  }

@@ -3,52 +3,78 @@
     display: flex;
     justify-content: center;
     color: white;
+    background-color: white;
+    min-height: 85vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-section{
-    width: 70%;
-    margin-left: auto;
-}
-header{
-    height: 40vh;
-    width: 100%;
+#parallax{
+    margin-top: 50px;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Ffondo2.JPG?alt=media&token=ea6ac758-3942-4cb9-86a7-54a9af008f2f");
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
     position: relative;
-    display: block;
-    background-color: rgba(0, 0, 0, 0.405);
+    justify-content: center;
+    opacity: 0;
+    transition: all 300ms;
 }
-.franja{
-    display: flex;
-    flex-direction: row;
-    scroll-behavior: smooth;
+#shop{
+    position: relative;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Ffondo1%20(2).JPG?alt=media&token=5723b2c3-3e0c-4342-8e6d-622ac243f6ff");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: all 300ms;
 }
-.item{
-    height: 100%;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+#contact{
+    position: relative;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Ffondo3.JPG?alt=media&token=9f60974a-734d-42ba-8044-565a176448bc");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: all 300ms;
 }
-.itemContainer{
-    height: 40vh;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-}
-article{
-    width: 60vw;
-    min-height: 80vh;
+#offices{
+    position: relative;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Ftienda.JPG?alt=media&token=384da8da-05b3-4257-b96b-90f5bf2e2f2e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: all 300ms;
 }
 aside{
-    width: 20vw;
-    min-height: 80vh;
-    text-align: center;
+    width: 100%;
 }
-.boton{
+
+.shadow{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(1, 12, 21, 0.605);
+    padding: 0%;
+    margin: 0%;
+    position: absolute;
+    transition: 300ms;
+    opacity: 1;
     cursor: pointer;
-    transition: all 0.3s;
-    
 }
-.boton:hover{
-    color: rgb(17, 110, 161)!important;
+
+.shadow:hover{
+    opacity: 0;
+}
+
+.foto:hover{
+    transform: scale(1.005);
+    box-shadow: rgba(0, 0, 0, 0.668) 1px 1px 20px;
 }

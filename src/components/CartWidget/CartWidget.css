@@ -50,3 +50,9 @@
     justify-content: space-evenly;
     padding: auto;
 }
+
+@media only screen and (min-width: 300px) {
+    .widget{
+margin-left: auto;
+    }
+  }

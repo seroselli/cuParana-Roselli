@@ -1,62 +1,90 @@
 import {useContext, useEffect, useState } from 'react'
 import { CartContext } from '../CartContext/CartContext';
+import Item from '../Item/Item';
+import Spinner from '../Spinner/Spinner';
 import './ItemCount.css'
 
-const ItemCount = ({id,stock,initial,type}) => {
-    let eInitial = (stock===0) ? "sin stock" : parseInt(initial);
-    
-    const [count,setCount] = useState(eInitial)
+const ItemCount = ({data,type,onAdd,initial}) => {
+
+    const {modifyItem,addItem} = useContext(CartContext)
+    const [spinner,setSpinner] = useState(true)
+    const [count,setCount] = useState(parseInt(initial))
+
 
     useEffect(() => {
-        if(type==="cartButtons"){
-            modifyItem(id,count)
-        }    
-    }, [count])
-    
-    const {addItem,toggleCartContainer,modifyItem} = useContext(CartContext)
+        setSpinner(false)
+      }, [data])
 
-    const handleSubmit = async (e) =>{
+    const operar = async(quantity) => {
+        setSpinner(true)
+        if (quantity<=0){
+            quantity=1
+            setCount(1)
+        }
+        else{
+            if(quantity<data.stock){
+                setCount(quantity)
+            }
+            else{
+                quantity = data.stock
+                setCount(data.stock)
+            }
+        }
+        if(type=="cartButtons"){
+            
+            await modifyItem({id:data.id,quantity:quantity}).then(response =>{
+                setSpinner(false)
+                onAdd(response)
+            })   
+        }
+    }
+
+    const handleSubmit = (e) =>{
         e.preventDefault()
-            addItem({id:id,quantity:count})
-            setTimeout(() => {
-                toggleCartContainer()
-            }, 200);
+        addItem({id:data.id,quantity:count})
     }
+
     
-    async function sumar() {
-        if(count<stock)
-            {setCount(count+1)}
-        if(count===stock)
-            {setCount(stock)}
+
+    if(type==="cartButtons"){
+        return (
+            <>
+                    <div className='d-flex allign-center w-100'>
+                        {spinner? (<Spinner/>):                        
+                        <div className="botones">
+                            <span className="left" onClick={()=>{operar(count-1)}}></span>
+                            <span className="right" onClick={()=>{operar(count+1)}}></span>
+                            <div className="box">
+                                <span>{count}</span>
+                            </div>
+                        </div>}
+
+                    </div>
+            </>
+        )
     }
-    
-    async function restar() {
-        if(count>1)
-            {setCount(count-1)}
-        if(count===1)
-            {setCount(1)}
-    }
-
-
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <div className='d-flex allign-center w-100' style={eInitial!=="sin stock"?null:{pointerEvents:"none"}}>
-                    <div className="botones">
-                        <span className="left" onClick={restar}></span>
-                        <span className="right" onClick={sumar}></span>
-                        <div className="box">
-                            <span>{count}</span>
+    else{
+        return(
+            <form onSubmit={handleSubmit}>
+                {data.stock==0?<p>Sin stock</p>:
+                    <div className='d-flex allign-center w-100'>
+                        <div className="botones">
+                            <span className="left" onClick={()=>{operar(count-1)}}></span>
+                            <span className="right" onClick={()=>{operar(count+1)}}></span>
+                            <div className="box">
+                                <span>{count}</span>
+                            </div>
                         </div>
-            </div>
-            </div>
-            {type!=="cartButtons"?
+                    </div>
+                }
             <div className="d-flex w-100">
                 <button className='w-100 btn btn-outline-dark mt-3' type='submit'>Add to Cart</button>
             </div>
-            :null}   
         </form>
-    )
+        )
+
+    }
+
 }
 
 

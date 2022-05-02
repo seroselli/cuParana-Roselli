@@ -1,5 +1,5 @@
-import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
-import { useState } from "react";
+import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from "firebase/firestore";
+import { appFB } from "..";
 
 
 export const getItems = async ()=>{
@@ -35,5 +35,30 @@ export const getDatosbyId = id => {
     })
 }
 
+export const getItemsbyQuery = async (e)=>{
+  const database = getFirestore();
+  const q =  query(
+    collection(database,"items"),where("price",">=",e.min),where("price","<=",e.max)
+  )
+  return new Promise(resolve =>{
+      getDocs(q).then(snapshot=>{
+      if(snapshot.size === 0){
+        resolve("noitems")
+      }
+      else{
+        let response = snapshot.docs.map(doc=>({id: doc.id,...doc.data()}))
+        resolve(response)
+      }
+    })
+  })
+ 
+}
 
+/*      let query = firestore.collection('col').where('foo', '==', 'bar');
 
+      query.get().then(querySnapshot => {
+        let docs = querySnapshot.docs;
+        for (let doc of docs) {
+          console.log(`Document found at path: ${doc.ref.path}`);
+        }
+      });*/

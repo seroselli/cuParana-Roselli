@@ -1,0 +1,26 @@
+.toaster-containers{
+    position:fixed;
+    width: 200px;
+    height: 100vh;
+    display: block;
+    top: 50px;
+    right: 0px;
+    padding-right: 10px;
+}
+.toast-containers{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    border-radius: 10px;
+    z-index: 11000!important;
+    flex-direction: row;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-top: 10px;
+}
+.toast-containers span{
+    cursor: pointer;
+}
+.toast-containers span:hover{
+    color: white;
+}

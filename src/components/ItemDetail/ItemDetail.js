@@ -23,7 +23,7 @@ const ItemDetail = ({itemId, item}) => {
                     <p >{item===undefined?null:item.description} </p>
                     <p >Stock: {item===undefined?null:item.stock} </p>
                     <p style={{color:"green"}}>Envío gratis</p>
-                    <ItemCount stock={item===undefined?null:item.stock} id={itemId} initial="1" type="buttons"/>
+                    <ItemCount data={item} initial="1" type="buttons"/>
                 </div>
                 <div className="linea"></div>
             </div>
