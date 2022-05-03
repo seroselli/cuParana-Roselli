@@ -8,11 +8,8 @@ import './Confirmed.css'
 
 const Confirmed = ({onAdd,data}) => {
     const {notifySuccess} = useContext(CartContext)
-    const [state, setState] = useState(data)
-    useEffect(() => {
-        setState(data)
-    }, [data])
-    
+    const [date,setDate] = useState(convertDate(new Date()))
+    const state = data
     const captureResume = () =>{
         html2canvas(document.getElementById("resume")).then(canvas => {
             notifySuccess(`Downloading order`)
@@ -24,6 +21,10 @@ const Confirmed = ({onAdd,data}) => {
             a.click();
         });
     }
+    useEffect(() => {
+      setDate(convertDate(state.date))
+    }, [data])
+    
         return (
             <div className="container px-5 mt-5 text-center" style={{color:"white",minHeight:"700px"}}>
             <div className="title">
@@ -31,7 +32,7 @@ const Confirmed = ({onAdd,data}) => {
                 <h3 >You are one step away from trying the best muffins</h3>
             </div>
             <p style={{fontSize:"11px"}}>Don't forget to tag us on social media ʕᵔᴥᵔʔ</p>
-            <button id="btnDownload" className='btn my-auto' type='button' onClick={()=>{captureResume()}} >Download <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M23 24v-20h-8v2h6v16h-18v-16h6v-2h-8v20h22zm-12-13h-4l5 6 5-6h-4v-11h-2v11z"/></svg></button>
+            <button id="btnDownload" className='btn my-auto' type='button' onClick={()=>{captureResume()}} >Download <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" fillRule="evenodd" clipRule="evenodd"><path d="M23 24v-20h-8v2h6v16h-18v-16h6v-2h-8v20h22zm-12-13h-4l5 6 5-6h-4v-11h-2v11z"/></svg></button>
 
             <div className="list-cart2" id='resume'>
             {state!=undefined?
@@ -42,7 +43,7 @@ const Confirmed = ({onAdd,data}) => {
                     <p style={{fontSize:"10px"}}>Do not forget to save the id for any query</p>
                     <div className="my-3 d-flex flex-column">
                         <div className='d-flex mx-auto'>
-                            <h5 className='my-auto'>Order ID: {state.id}</h5><p className='ms-5 my-auto'>Date: {(state.date).slice(0,10)+" - "+(state.date).slice(11,19)}</p>
+                            <h5 className='my-auto'>Order ID: {state.id}</h5><p className='ms-5 my-auto'>Date: {date}</p>
                         </div>
                     </div>
                     <div className="row my-3">
@@ -71,3 +72,15 @@ const Confirmed = ({onAdd,data}) => {
   export default Confirmed
 
 
+function convertDate (num){
+
+    let aux = new Date(num)
+    let hora = aux.getHours()<10?  "0"+aux.getHours().toString():aux.getHours().toString()
+    let min = aux.getMinutes()<10?  "0" + aux.getMinutes().toString():aux.getMinutes().toString()
+    let date = aux.getDate()<10? "0" + aux.getDate().toString() : aux.getDate().toString()
+    let month = aux.getMonth()<9? "0" + (aux.getMonth()+1).toString() : (aux.getMonth()+1).toString()
+    let year = aux.getFullYear().toString()
+    let result = hora+":"+min+" "+date+"/"+month+"/"+year
+    return result
+
+}

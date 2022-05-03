@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css'
 
-const ItemDetail = ({itemId, item}) => {
+const ItemDetail = ({itemId, item, events}) => {
     
     const spinner = (
         <div className="spinner-grow mx-auto my-auto" role="status">
@@ -35,12 +35,12 @@ const ItemDetail = ({itemId, item}) => {
             <div className="container mt-5">
                 <div className="row">
                     <div className="d-flex w-100 mt-3">
-                        <Link to={`/item/${(parseInt(itemId)-1)}`} className="md-auto" > 
+                        <button className="md-auto" style={{border:"transparent", backgroundColor:"transparent"}} onClick={()=>{events("-")}}> 
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg></span>
-                        </Link>
-                        <Link to={`/item/${(parseInt(itemId)+1)}`} className="ms-auto" replace >
+                        </button>
+                        <button className="ms-auto" style={{border:"transparent", backgroundColor:"transparent"}} onClick={()=>{events("+")}}>
                             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/></svg></span>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>

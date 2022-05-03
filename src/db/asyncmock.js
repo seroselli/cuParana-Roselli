@@ -54,11 +54,3 @@ export const getItemsbyQuery = async (e)=>{
  
 }
 
-/*      let query = firestore.collection('col').where('foo', '==', 'bar');
-
-      query.get().then(querySnapshot => {
-        let docs = querySnapshot.docs;
-        for (let doc of docs) {
-          console.log(`Document found at path: ${doc.ref.path}`);
-        }
-      });*/

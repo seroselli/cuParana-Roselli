@@ -8,6 +8,7 @@ export const DBContext = createContext()
 
 const DBProvider = ( { children }) => {
 
+    const [itemsCount, setItemsCount] = useState([])
     const [spinner,setSpinner] = useState(true)
     const [db,setDb] = useState(() => {
         getItems().then(data => {
@@ -68,6 +69,7 @@ const DBProvider = ( { children }) => {
                     return 0;
                   });
             }
+            refreshCounter(dbAux)
             setDb(dbAux)
             resolve(db)
         })
@@ -84,12 +86,11 @@ const DBProvider = ( { children }) => {
 
     const sendCheckOut = async(form) => {
       const dbFS = getFirestore();
-      let now = new Date(Date.now())
-      console.log(now)
-      let hash = parseInt((Math.random()*100000000)%100000) + "-" + now.getDate() + ((now.getMonth()+1)<10?"0"+(now.getMonth()+1):(now.getMonth()+1)) + now.getFullYear()
-      console.log(`Crete random Hash para la fecha ${now}: ${hash}`)
+      let now = Date.now()
+      let date = new Date()
       return new Promise ( resolve => {
         try {
+          let hash = parseInt((Math.random()*100000000)%100000) + "-" + date.getDate() + ((date.getMonth()+1)<10?"0"+(date.getMonth()+1):(date.getMonth()+1)) + date.getFullYear()
           setDoc(doc(dbFS, "records", hash), {
             name: form.name,
             email: form.email,
@@ -106,6 +107,29 @@ const DBProvider = ( { children }) => {
       })
     }
 
+    const refreshCounter = (dbaux) =>{
+      if(db!=undefined){
+        let aux = []
+        dbaux.forEach(element => {
+          aux.push(element.id)
+        });
+        setItemsCount(aux)
+        }
+    }
+    
+    useEffect(() => {
+      if(db!=undefined){
+              let aux = []
+      let dbaux = db
+      db.forEach(element => {
+        aux.push(element.id)
+      });
+      setItemsCount(aux)
+      }
+
+    }, [db])
+    
+
     const valueD = useMemo(()=>{
     return{
         db,
@@ -114,7 +138,8 @@ const DBProvider = ( { children }) => {
         sortDB,
         refreshDB,
         sendCheckOut,
-        filterData
+        filterData,
+        itemsCount
         }
     },[db,spinner])
 

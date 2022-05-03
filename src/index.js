@@ -6,8 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { StrictMode } from 'react';
 import { initializeApp } from 'firebase/app';
 
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyCaAZ5uS3Oj_emiGs9W4crikzXLQ4BwxBE",
     authDomain: "coder-react2022.firebaseapp.com",
@@ -19,9 +17,6 @@ const firebaseConfig = {
   
 
 export const appFB = initializeApp(firebaseConfig);
-
-
-
 
 
     ReactDOM.render(

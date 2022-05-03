@@ -33,9 +33,9 @@ const CheckCart = ({onAdd}) => {
                         </div>
 
                         {listado.map(item=>
-                        <div>
+                        <div key={"cart"+item.id}>
                             <hr style={{width:"80%", marginLeft:"auto",marginRight:"auto"}}/>
-                            <div className="row mt-4 py-3 mx-auto" key={"cart"+item.id}>
+                            <div className="row mt-4 py-3 mx-auto" >
                                 <div className="col">{item.name}</div>
                                 <div className="col">{item.quantity}</div>
                                 <div className="col">${item.subtotal}</div>

@@ -14,7 +14,7 @@ const navigate = useNavigate()
  const [state, setState] = useState(true)
 
  const [form_data, setForm_data] = useState({name:"",cellphone:"",direction:"",email:""})
- const [error, setError] = useState({name:false,cellphone:false,check:false,email:false})
+ const [error, setError] = useState({name:true,cellphone:false,check:true,email:true})
 
     const checkout = (e) =>{
         e.preventDefault()
@@ -79,7 +79,6 @@ const navigate = useNavigate()
     }
 
     useEffect(() => {
-        console.log(error)
         if(!error.cellphone&&error.check&&!error.email&&!error.name){
             setState(false)
         }
@@ -91,7 +90,6 @@ const navigate = useNavigate()
 
             return (
                 <>
-                {console.log(total)}
                 <div className="container px-5 mt-5 text-center" style={{color:"white",minHeight:"700px"}}>
                     <div className="title">
                         <img  src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcakes.png?alt=media&token=17a60148-974d-4b72-ab50-740f8eb5415b" alt="" />
@@ -118,7 +116,7 @@ const navigate = useNavigate()
                                 <label htmlFor="floatingInput">Direction</label>
                             </div>
                             <div className="form-check form-switch">
-                                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={error.check} onClick={(e)=>{validate(e)}}/>
+                                <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" defaultChecked={error.check} onClick={(e)=>{validate(e)}}/>
                                 <label className="form-check-label" htmlFor="flexSwitchCheckChecked"><Link to={"/terms"}>You agree terms&conditions</Link></label>
                             </div>
                         <button id="finish" className="btn btn-success mt-5 w-50" type="submit" disabled={state}>Next Step</button>    

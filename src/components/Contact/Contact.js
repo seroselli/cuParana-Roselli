@@ -24,9 +24,9 @@ const Contact = () => {
                     <input type="email"  name="email" className="form-control" />
                     <label htmlFor="floatingInput">Email address</label>
                 </div>
-                <div class="input-group">
-                    <span class="input-group-text">Message</span>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                <div className="input-group">
+                    <span className="input-group-text">Message</span>
+                    <textarea className="form-control" aria-label="With textarea"></textarea>
                 </div>
             <button id="finish" className="btn btn-success mt-5 w-50" type="submit">Send</button>    
             </form>

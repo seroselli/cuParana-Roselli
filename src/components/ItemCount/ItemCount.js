@@ -67,6 +67,8 @@ const ItemCount = ({data,type,onAdd,initial}) => {
         return(
             <form onSubmit={handleSubmit}>
                 {data.stock==0?<p>Sin stock</p>:
+
+                <>
                     <div className='d-flex allign-center w-100'>
                         <div className="botones">
                             <span className="left" onClick={()=>{operar(count-1)}}></span>
@@ -76,10 +78,13 @@ const ItemCount = ({data,type,onAdd,initial}) => {
                             </div>
                         </div>
                     </div>
+                    <div className="d-flex w-100">
+                        <button className='w-100 btn btn-outline-dark mt-3' type='submit'>Add to Cart</button>
+                    </div>
+                </>
+
                 }
-            <div className="d-flex w-100">
-                <button className='w-100 btn btn-outline-dark mt-3' type='submit'>Add to Cart</button>
-            </div>
+
         </form>
         )
 

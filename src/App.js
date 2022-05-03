@@ -18,20 +18,34 @@ import Toaster from './components/Toaster/Toaster';
 import { ToastContainer } from 'react-toastify';
 import Contact from './components/Contact/Contact';
 import Offices from './components/Offices/Offices';
+import Terms from './components/Terms/Terms';
 
 
 
 
 const App = () =>{
 
-const [state,setState] = useState(true)
+const [state,setState] = useState(()=>{
+  let states = sessionStorage.getItem("startVideo")
+  if(states!=null){
+    return false
+  }
+  else{
+    return true
+  }
+
+})
   useEffect(async() => {
-    setTimeout(() => {
+    if(state){
+          setTimeout(() => {
       document.getElementById("video2").style.opacity = 0
     }, 2000);
     setTimeout(() => {
       setState(false)
+      sessionStorage.setItem("startVideo","true")
     }, 4000);
+    }
+
   }, [])
   
   if(state){
@@ -73,6 +87,7 @@ else{
                 <Route exact path="/buypage/nextstep" element={<BuyPage />}/>
                 <Route exact path="/item/:itemId" element={<ItemDetailContainer/>}/>
                 <Route exact path="/notfound" element={<NotFound/>}/>
+                <Route exact path="/terms" element={<Terms/>}/>
             </Routes>
             <Footer/>
           </BrowserRouter>
