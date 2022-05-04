@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cuParana-Roselli/static/css/main.34028796.css",
-    "main.js": "/cuParana-Roselli/static/js/main.a2929139.js",
-    "static/js/787.c1112931.chunk.js": "/cuParana-Roselli/static/js/787.c1112931.chunk.js",
-    "index.html": "/cuParana-Roselli/index.html",
-    "main.34028796.css.map": "/cuParana-Roselli/static/css/main.34028796.css.map",
-    "main.a2929139.js.map": "/cuParana-Roselli/static/js/main.a2929139.js.map",
-    "787.c1112931.chunk.js.map": "/cuParana-Roselli/static/js/787.c1112931.chunk.js.map"
+    "main.css": "/static/css/main.30e895b3.css",
+    "main.js": "/static/js/main.dc3c4283.js",
+    "static/js/787.c1112931.chunk.js": "/static/js/787.c1112931.chunk.js",
+    "index.html": "/index.html",
+    "main.30e895b3.css.map": "/static/css/main.30e895b3.css.map",
+    "main.dc3c4283.js.map": "/static/js/main.dc3c4283.js.map",
+    "787.c1112931.chunk.js.map": "/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34028796.css",
-    "static/js/main.a2929139.js"
+    "static/css/main.30e895b3.css",
+    "static/js/main.dc3c4283.js"
   ]
 }
