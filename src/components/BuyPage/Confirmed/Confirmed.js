@@ -52,7 +52,7 @@ const Confirmed = ({onAdd,data}) => {
                         <strong><u>Resume</u></strong>
                     {
                         cart.map(item => 
-                            <div className="row mx-auto" key={"resume"+ item.id} style={{width:"50%"}}>
+                            <div className="row mx-auto" key={"resume"+ item.id}>
                                     <div className="col">
                                         {item.name}
                                     </div>
