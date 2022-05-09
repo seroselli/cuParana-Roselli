@@ -7,6 +7,7 @@ import { CartContext } from '../CartContext/CartContext';
 import { DBContext } from '../DBContext/DBContext';
 import { getItemsbyQuery } from '../../db/asyncmock';
 import { async } from '@firebase/util';
+import { paths } from '../../App';
 
 
 const ItemListContainer = ({greeting,types}) => {
@@ -27,7 +28,7 @@ const ItemListContainer = ({greeting,types}) => {
     },[categoryId,db,filter])
 
     const refreshList = (e) => {
-        navigate(`/shop/filter=${document.getElementById("filter").value}`)
+        navigate(`${paths.shop}/filter=${document.getElementById("filter").value}`)
     }
 
     const handleSubmit = async(e) =>{
@@ -56,8 +57,8 @@ const ItemListContainer = ({greeting,types}) => {
                        <b>Tienda  {categoryId===undefined?null:'>'} {categoryId==1?"Cupcakes":categoryId==2?"Cakes":null}</b> 
                         <ul>
                           <h4>Category</h4>
-                          <li><Link to="/category/1" style={categoryId==1?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>Cupcakes</Link></li>
-                          <li><Link to="/category/2" style={categoryId==2?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>MiniCakes</Link></li>
+                          <li><Link to={paths.category+"/1"} style={categoryId==1?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>Cupcakes</Link></li>
+                          <li><Link to={paths.category+"/2"} style={categoryId==2?{textDecoration:"none", color: "black", pointerEvents: "none"}:{textDecoration:"none"}}>MiniCakes</Link></li>
                         </ul>
                         <div className='d-flex flex-column w-100'>
                           <h4>Filter by</h4>

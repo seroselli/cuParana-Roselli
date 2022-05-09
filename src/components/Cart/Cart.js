@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { CartContext } from "../CartContext/CartContext"
 import ItemCount from "../ItemCount/ItemCount"
 import './Cart.css'
+import {paths} from './../../App'
+
 
 const Cart = () =>{
 
@@ -88,7 +90,7 @@ const Cart = () =>{
                         </div>
                         <div className="foot mt-auto mb-4">
                             <button className="btn btn-danger ms-3" onClick={()=>{clear()}} ><svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg></button>
-                            <button className="col btn" onClick={()=>{toggleCartContainer();navigate("/buypage")}}>Finish Buying</button>
+                            <button className="col btn" onClick={()=>{toggleCartContainer();navigate(paths.buypage)}}>Finish Buying</button>
                         </div>
                     </div>
             </div> 

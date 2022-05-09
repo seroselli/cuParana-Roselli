@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Cupcakes Paraná
+=========================
+# Introducción
+Este proyecto fue desarrollado con React.js y Firebase como proyecto para el curso de React en [CoderHouse](https://www.coderhouse.com/). Es sencillo, no tiene gestión ni autenticación de usuario. Sirve sólo para gestionar una compra fácil y generar ordenes de compra para un negocio pequeño.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Create React App](https://github.com/facebook/create-react-app).Se necesita tener Node >=14 instalado
+`npm create-react-app my-app`
+[Firebase Firestore](https://firebase.google.com/docs/web/setup?hl=es)
+`npm i firebase`
 
-## Available Scripts
+Algunas cosas importantes:
+=========================
+Esta página esta publicada en Github Pages a través del package `npm i gh-pages`, para ello se agregó en package.json "homepage" la dirección de GH pages. Por lo tanto se hizo un `npm run build` y un `npm run deploy` para publicar el webpack bajo el siguiente link: [Cupcakes Paraná](https://seroselli.github.io/cuParana-Roselli/)
+ Notar también que también se hizo una modificación en los path de los Links para que el Browser Router funcione correctamente en la dirección de GH Pages. Esta modificación se puede ver en [App.js](https://github.com/seroselli/cuParana-Roselli/blob/main/src/App.js)
+ 
+# Packages utilizados
 
-In the project directory, you can run:
+[Bootstrap](https://www.npmjs.com/package/bootstrap) como package de estilos, complementando con mis propias ediciones de css.
+ `npm i bootstrap`
 
-### `npm start`
+[GitHub Pages](https://www.npmjs.com/package/gh-pages) para publicar/buildear la página
+ `npm i gh-pages`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[React Tostify](https://www.npmjs.com/package/react-toastify) para generación de notificaciones de posición absoluta para mantener una comunicación con el usuario.
+ `npm i react-toastify`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Html2Canvas](https://html2canvas.hertzen.com/documentation) para generación de un canvas y su exportación como JPG. `npm i html2canvas`
 
-### `npm test`
+Routing
+=========================
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+App----------->Navbar
 
-### `npm run build`
+App----------->Footer
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+App----------->BrowserRouting
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+BrowserRouting-->ItemListContainer---->ItemList---->Item------>ItemCount
+BrowserRouting-->BuyPage-------------->CheckCart--->CheckOut-->ResumeOrder
+BrowserRouting-->ItemDetailContainer-->ItemDetail-->ItemCount
+BrowserRouting-->NotFound
+BrowserRouting-->Terms
+BrowserRouting-->Offices
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Responsive
+=========================
+Con respecto a uso responsive de la página web, todavía queda bajo construcción y se pospone su desarrollo por no estar implícito en los requisitos de entrega.

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { paths } from '../../App'
 import './Footer.css'
 
 const Footer = (props) => {
@@ -8,8 +9,8 @@ const Footer = (props) => {
             <footer>
                 <div className="container-fluid d-flex flex-column mx-auto">
                     <div className="row mx-auto justify-content-evenly w-50 mt-5">
-                        <div className="col"><Link to={"/contact"}>Redes sociales</Link></div>
-                        <div className="col"><Link to={"/offices"}>Nuestras sucursales</Link></div>
+                        <div className="col"><Link to={paths.contact}>Redes sociales</Link></div>
+                        <div className="col"><Link to={paths.offices}>Nuestras sucursales</Link></div>
                         <div className="col"><a href={"http://www.linkedin.com/in/seroselli"}>Desarrollo</a></div>
                         
                     </div>

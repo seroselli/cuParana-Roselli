@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { paths } from "../../App";
 import { CartContext } from "../CartContext/CartContext";
 import CheckCart from "./CheckCart/CheckCart";
 import CheckOut from "./CheckOut/CheckOut";
 import Confirmed from "./Confirmed/Confirmed";
-
 
 
 const BuyPage = (props) => {
@@ -39,7 +39,7 @@ const BuyPage = (props) => {
             <p style={{fontSize:"11px"}}>Don't forget to tag us on social media ʕᵔᴥᵔʔ</p>
             <div className="list-cart mt-5">
                 <h2>Empty Cart</h2>
-                <button type="button" className="btn btn-outline-info"><Link to={"/shop"} style={{textDecoration:"none", color:"black"}}><b>Go to shop</b></Link></button>
+                <button type="button" className="btn btn-outline-info"><Link to={paths.shop} style={{textDecoration:"none", color:"black"}}><b>Go to shop</b></Link></button>
             </div>
         </div>
         )

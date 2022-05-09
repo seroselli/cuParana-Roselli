@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams, useNavigate} from 'react-router-dom';
+import { paths } from '../../App';
 import { getDatosbyId } from '../../db/asyncmock';
 import { DBContext } from '../DBContext/DBContext';
 import ItemDetail from '../ItemDetail/ItemDetail';
@@ -23,10 +24,10 @@ const ItemDetailContainer = (props) => {
             else{   
                 setItem(aux)
                 if(aux !== undefined){
-                    navigate(`/item/${parseInt(aux.id)}`)
+                    navigate(`${paths.item}/${parseInt(aux.id)}`)
                 }
                 else{
-                    navigate("/notfound")
+                    navigate(paths.notfound)
                 }
             }
          }) 
@@ -36,19 +37,19 @@ const ItemDetailContainer = (props) => {
     if(e==="+"){
         let idNext = parseInt(counterItems.findIndex(d=>d==parseInt(itemId)))+1
         if(idNext==counterItems.length){
-            navigate(`/item/${counterItems[0]}`)
+            navigate(`${paths.item}/${counterItems[0]}`)
         }
         else{
-            navigate(`/item/${counterItems[idNext]}`)
+            navigate(`${paths.item}/${counterItems[idNext]}`)
         }
 
     }else{
         let idNext = parseInt(counterItems.findIndex(d=>d==parseInt(itemId)))-1
         if(idNext<0){
-            navigate(`/item/${counterItems[(counterItems.length-1)]}`)
+            navigate(`${paths.item}/${counterItems[(counterItems.length-1)]}`)
         }
         else{
-            navigate(`/item/${counterItems[idNext]}`)
+            navigate(`${paths.item}/${counterItems[idNext]}`)
         }
     }
    }

@@ -2,26 +2,27 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar.js';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
 import {useEffect, useState } from 'react';
-import {getDatosbyId} from './db/asyncmock.js'
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import MsgBox from './components/MsgBox/MsgBox';
 import CartProvider from './components/CartContext/CartContext';
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
 import BuyPage from './components/BuyPage/BuyPage';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
-import SearchProvider from './components/SearchContext/SearchContext';
 import DBProvider from './components/DBContext/DBContext';
 import Footer from './components/Footer/Footer';
-import Toaster from './components/Toaster/Toaster';
 import { ToastContainer } from 'react-toastify';
 import Contact from './components/Contact/Contact';
 import Offices from './components/Offices/Offices';
 import Terms from './components/Terms/Terms';
 
+/*               IMPORTANT!!                 */
 
+const GH = "/cuParana-Roselli"  //NPM RUN BUILD (GitHub Pages) --> and change in package.json the object "homepage" : "https://seroselli.github.io/cuParana-Roselli/"
+//const GH = ""   //NPM START --> and change in package.json the object "homepage" : "/"
+/*CHANGE THIS ↑↑↑ FOR NPM START */
 
+export const paths = {home: GH+"/", shop: GH + "/shop",item: GH+"/item", buypage: GH + "/buypage", contact: GH + "/contact", offices: GH + "/offices", terms: GH + "/terms", notfound: GH + "/notfound", category: GH + "/category"}
 
 const App = () =>{
 
@@ -45,7 +46,6 @@ const [state,setState] = useState(()=>{
       sessionStorage.setItem("startVideo","true")
     }, 4000);
     }
-
   }, [])
   
   if(state){
@@ -58,10 +58,19 @@ const [state,setState] = useState(()=>{
     )
 }
 else{
-  return (
+  if(window.screen.width<1000){
+    return(
+      <div className='d-flex justify-content-evenly flex-column' style={{width:"100%",height:"70vh",position:"absolute"}}>
+        <img className='mx-auto' style={{width:"50%"}} src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Flogo_completo.png?alt=media&token=5f826704-8967-431c-8909-012ade0e6013" alt="" />
+        <div className='mx-auto text-center' style={{color:"red",width:"80%",height:"auto",fontSize:"25px"}}>Sorry, this page is not available for smartphones and tablets</div>
+        <div style={{color:"white", marginLeft:"auto", marginRight:"auto"}}>Responsive mode under construction</div>
+      </div>
+    )
+  }
+  else{
+    return (
     <DBProvider>
       <CartProvider>
-        <SearchProvider>
           <BrowserRouter >
             <NavBar marca="Cupcakes Paraná"/>
             <ToastContainer
@@ -77,25 +86,25 @@ else{
               style={{zIndex:"10000",marginTop:"50px"}}
               />
             <Routes>
-                <Route exact path="/" element={<Home/>}/>
-                <Route exact path="/shop" element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
-                <Route exact path="/shop/filter=:filter" element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
-                <Route exact path="/contact" element={<Contact/>}/>
-                <Route exact path="/offices" element={<Offices/>}/>
-                <Route exact path="/category/:categoryId" element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
-                <Route exact path="/buypage" element={<BuyPage />}/>
-                <Route exact path="/buypage/nextstep" element={<BuyPage />}/>
-                <Route exact path="/item/:itemId" element={<ItemDetailContainer/>}/>
-                <Route exact path="/notfound" element={<NotFound/>}/>
-                <Route exact path="/terms" element={<Terms/>}/>
+                <Route exact path={paths.home} element={<Home/>}/>
+                <Route exact path={paths.shop} element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
+                <Route exact path={paths.shop+"/filter=:filter"} element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
+                <Route exact path={paths.contact} element={<Contact/>}/>
+                <Route exact path={paths.offices} element={<Offices/>}/>
+                <Route exact path={paths.category+"/:categoryId"} element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
+                <Route exact path={paths.buypage} element={<BuyPage />}/>
+                <Route exact path={paths.item+"/:itemId"} element={<ItemDetailContainer/>}/>
+                <Route exact path={paths.notfound} element={<NotFound/>}/>
+                <Route exact path={paths.terms} element={<Terms/>}/>
             </Routes>
             <Footer/>
           </BrowserRouter>
-        </SearchProvider>
       </CartProvider>
     </DBProvider>
   
   );
+  }
+  
 }
   
 }
