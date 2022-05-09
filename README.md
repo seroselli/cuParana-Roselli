@@ -1,4 +1,4 @@
-Cupcakes Paraná
+Cupcakes Paraná [`Open Page`](https://seroselli.github.io/cuParana-Roselli/)
 =========================
 # Introducción
 Este proyecto fue desarrollado con React.js y Firebase como proyecto para el curso de React en [CoderHouse](https://www.coderhouse.com/). Es sencillo, no tiene gestión ni autenticación de usuario. Sirve sólo para gestionar una compra fácil y generar ordenes de compra para un negocio pequeño.
