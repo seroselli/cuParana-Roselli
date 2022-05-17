@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Contact.css'
 const Contact = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
     const checkout = (e) =>{
-        console.log(e)
+        e.preventDefault()
+        let text = `Hola Cupcakes Paraná, soy ${e.target[0].value}, mi correo de contacto es ${e.target[1].value}, les deje este mensaje en la página: \n${e.target[2].value}`
+        var msj = document.createElement('a');
+        msj.target = '_blank';
+        msj.href= "https://api.whatsapp.com/send?phone=5493426310597&text=" + text;
+        msj.click();
     }
     return (
-        <div className="container" style={{marginTop:"100px",marginLeft:"10%",marginRight:"10%", minHeight:"100vh"}}>
+        <div className="container contactContainer" >
             <div className="row" id="buttonsContact">
                 <ul>
                     <li><a href="https://instagram.com/"><svg xmlns="http://www.w3.org/2000/svg" fill='currentColor' width="48" height="48" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
@@ -16,25 +25,25 @@ const Contact = () => {
             </div>
             <div className="row mx-auto my-4" style={{width:"80%"}}>
 
-                <div className="col-8">
-                                    <form onSubmit={checkout}>
-                    <div className="form-floating mb-3">
-                        <input type="text" name="name" id="form_name" className="form-control"/>
-                        <label htmlFor="floatingInput" >Complete name</label>
-                    </div>
-                    <div className="form-floating mb-3">
-                        <input type="email"  name="email" className="form-control" />
-                        <label htmlFor="floatingInput">Email address</label>
-                    </div>
-                    <div className="input-group">
-                        <span className="input-group-text">Message</span>
-                        <textarea className="form-control" aria-label="With textarea"></textarea>
-                    </div>
-                <button id="finish" className="btn btn-success mt-5 w-50" type="submit">Send</button>    
-                </form>
+                <div className="col-md-8">
+                    <form onSubmit={checkout}>
+                        <div className="form-floating mb-3">
+                            <input type="text" name="name" id="form_name" className="form-control"/>
+                            <label htmlFor="floatingInput" >Complete name</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input type="email"  name="email" className="form-control" />
+                            <label htmlFor="floatingInput">Email address</label>
+                        </div>
+                        <div className="input-group" style={{minHeight:"150px"}}>
+                            <span className="input-group-text">Message</span>
+                            <textarea className="form-control" aria-label="With textarea"></textarea>
+                        </div>
+                        <button id="finish" className="btn btn-success mt-5 w-50" type="submit">Send</button>    
+                    </form>
                 </div>
-                <div className="col-4">
-                    <img style={{width:"200px"}} src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcakes.png?alt=media&token=17a60148-974d-4b72-ab50-740f8eb5415b" alt="" />
+                <div className="col-md-4">
+                    <img className='imgContact' src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fcupcakes.png?alt=media&token=17a60148-974d-4b72-ab50-740f8eb5415b" alt="" />
                 </div>
             </div>
                 

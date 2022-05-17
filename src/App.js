@@ -18,11 +18,11 @@ import Terms from './components/Terms/Terms';
 
 /*               IMPORTANT!!                 */
 
-const GH = "/cuParana-Roselli"  //NPM RUN BUILD (GitHub Pages) --> and change in package.json the object "homepage" : "https://seroselli.github.io/cuParana-Roselli/"
-//const GH = ""   //NPM START --> and change in package.json the object "homepage" : "/"
+//const GH = "/cuParana-Roselli"  //NPM RUN BUILD (GitHub Pages) --> and change in package.json the object "homepage" : "https://seroselli.github.io/cuParana-Roselli/"
+const GH = ""   //NPM START --> and change in package.json the object "homepage" : "/"
 /*CHANGE THIS ↑↑↑ FOR NPM START */
 
-export const paths = {home: GH+"/", shop: GH + "/shop",item: GH+"/item", buypage: GH + "/buypage", contact: GH + "/contact", offices: GH + "/offices", terms: GH + "/terms", notfound: GH + "/notfound", category: GH + "/category"}
+export const paths = {home: GH+"/", shop: GH + "/shop",item: GH+"/item", buypage: GH + "/buypage", contact: GH + "/contact", offices: GH + "/offices", terms: GH + "/terms", notfound: GH + "/notfound", category: GH + "/shop/category"}
 
 const App = () =>{
 
@@ -57,16 +57,7 @@ const [state,setState] = useState(()=>{
         </div>
     )
 }
-else{
-  if(window.screen.width<1000){
-    return(
-      <div className='d-flex justify-content-evenly flex-column' style={{width:"100%",height:"70vh",position:"absolute"}}>
-        <img className='mx-auto' style={{width:"50%"}} src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Flogo_completo.png?alt=media&token=5f826704-8967-431c-8909-012ade0e6013" alt="" />
-        <div className='mx-auto text-center' style={{color:"red",width:"80%",height:"auto",fontSize:"25px"}}>Sorry, this page is not available for smartphones and tablets</div>
-        <div style={{color:"white", marginLeft:"auto", marginRight:"auto"}}>Responsive mode under construction</div>
-      </div>
-    )
-  }
+
   else{
     return (
     <DBProvider>
@@ -88,7 +79,6 @@ else{
             <Routes>
                 <Route exact path={paths.home} element={<Home/>}/>
                 <Route exact path={paths.shop} element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
-                <Route exact path={paths.shop+"/filter=:filter"} element={<ItemListContainer types="tienda" greeting='Tenemos tu nuevo cupcake favorito'/>}/>
                 <Route exact path={paths.contact} element={<Contact/>}/>
                 <Route exact path={paths.offices} element={<Offices/>}/>
                 <Route exact path={paths.category+"/:categoryId"} element={<ItemListContainer greeting='Tenemos tu nuevo cupcake favorito'/>}/>
@@ -96,6 +86,7 @@ else{
                 <Route exact path={paths.item+"/:itemId"} element={<ItemDetailContainer/>}/>
                 <Route exact path={paths.notfound} element={<NotFound/>}/>
                 <Route exact path={paths.terms} element={<Terms/>}/>
+                <Route path='*' element={<NotFound/>} />
             </Routes>
             <Footer/>
           </BrowserRouter>
@@ -107,7 +98,6 @@ else{
   
 }
   
-}
 
 export default App;
 

@@ -78,8 +78,6 @@ const CartProvider = ( { defaultValue = [] , children }) => {
       }, [cartList])
 
 
-
-
       const addItem = (evento)=>{
          let cartListCopy = cartList  
         if(isInCart(evento.id)){
@@ -87,7 +85,6 @@ const CartProvider = ( { defaultValue = [] , children }) => {
             modifyItem({id:evento.id,quantity:newQuantity}).then(response =>{
                 response?notifySuccess("Quantity modified!"):notifyWarning("Something it's wrong, quantity unmodified");  
             })
-            
         }
         else{
             let newItem = db.find(element=>element.id == evento.id)

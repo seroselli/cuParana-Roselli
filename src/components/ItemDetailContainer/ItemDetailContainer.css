@@ -8,3 +8,19 @@
     border-radius: 10px;
     outline: solid rgba(0, 0, 0, 0.11) 1px;
 }
+
+
+@media only screen and (max-width: 766px) {
+
+    .detailContainer{
+        background-color: white;
+        width: 95vw;
+        min-height: 88vh;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 11vh;
+        border-radius: 10px;
+        outline: solid rgba(0, 0, 0, 0.11) 1px;
+    }
+
+}

@@ -13,16 +13,15 @@ const ItemDetail = ({itemId, item, events}) => {
 
     const itemDetail = (
         <>
-
             <div className="d-flex p-3 mx-auto justify-content-between container row">
-                <div className="d-flex p-3 md-auto col-8">
-                    <img className='img-fluid' src={item===undefined?null:item.image} alt="image"/>
+                <div className="col-md-8 d-flex justify-content-center">
+                    <img className='img-fluid detailImg' src={item===undefined?null:item.image} alt="image"/>
                 </div>
-                <div className="d-flex justify-content-evenly flex-column col-4 boxCard">
+                <div className="d-flex justify-content-evenly flex-column col-md-4 boxCard mt-3">
                     <h3>{item===undefined?null:item.name} </h3>
                     <p >{item===undefined?null:item.description} </p>
                     <p >Stock: {item===undefined?null:item.stock} </p>
-                    <p style={{color:"green"}}>Envío gratis</p>
+                    <p style={{color:"green"}}>Free Ship</p>
                     <ItemCount data={item} initial="1" type="buttons"/>
                 </div>
                 <div className="linea"></div>

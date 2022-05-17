@@ -30,8 +30,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
     transition: all 300ms;
 }
 #contact{
@@ -40,8 +38,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
     transition: all 300ms;
 }
 #offices{
@@ -50,14 +46,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
     transition: all 300ms;
 }
 aside{
     width: 100%;
 }
 
+#imgCupcakes{
+    width: 50%;
+}
 .shadow{
     width: 100%;
     height: 100%;
@@ -74,16 +71,32 @@ aside{
     opacity: 0;
 }
 
-
+.esvg svg{
+    width: 9rem;
+    height: 9rem;
+}
+.esvg p{
+    font-size: 5rem;
+}
 .foto:hover{
     transform: scale(1.005);
     box-shadow: rgba(0, 0, 0, 0.668) 1px 1px 20px;
 }
+@media only screen and (max-width: 1100px) {
 
-@media only screen and (max-width: 600px) {
+    .esvg svg{
+        width: 40%!important;
+    }
+    .esvg p{
+        font-size: 300%!important;
+    }
+}
 
-    .shadow{
-        opacity: 0;
+
+@media only screen and (max-width: 766px) {
+
+    #imgCupcakes{
+        width: 100%;
     }
 
 }

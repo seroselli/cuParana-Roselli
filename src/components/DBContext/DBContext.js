@@ -9,7 +9,6 @@ export const DBContext = createContext()
 const DBProvider = ( { children }) => {
 
     const [itemsCount, setItemsCount] = useState([])
-    const [spinner,setSpinner] = useState(true)
     const [db,setDb] = useState(() => {
         getItems().then(data => {
           return data
@@ -17,72 +16,15 @@ const DBProvider = ( { children }) => {
     })
 
     const refreshDB = async() =>{
-          getItems().then(data => {
-            setDb(data)
-            setSpinner(false) })
-    }
-
-    const sortDB = (filter) =>{
-        let dbAux =  db
-        return new Promise (resolve =>{
-          if(filter=="newest"){
-            dbAux.sort(function (a, b) {
-                if (parseInt(a.id) < parseInt(b.id)) {
-                  return 1;
-                }
-                if (parseInt(a.id) > parseInt(b.id)) {
-                  return -1;
-                }
-                return 0;
-              });
-        }
-            if(filter=="stock"){
-                dbAux.sort(function (a, b) {
-                    if (parseInt(a.stock) < parseInt(b.stock)) {
-                      return 1;
-                    }
-                    if (parseInt(a.stock) > parseInt(b.stock)) {
-                      return -1;
-                    }
-                    return 0;
-                  });
-            }
-            if(filter=="etoc"){
-                dbAux.sort(function (a, b) {
-                    if (parseInt(a.price) < parseInt(b.price)) {
-                      return 1;
-                    }
-                    if (parseInt(a.price) > parseInt(b.price)) {
-                      return -1;
-                    }
-                    return 0;
-                  });
-            }
-            if(filter=="ctoe"){
-                dbAux.sort(function (a, b) {
-                    if (parseInt(a.price) > parseInt(b.price)) {
-                      return 1;
-                    }
-                    if (parseInt(a.price) < parseInt(b.price)) {
-                      return -1;
-                    }
-                    return 0;
-                  });
-            }
-            refreshCounter(dbAux)
-            setDb(dbAux)
-            resolve(db)
+      return new Promise(resolve => {
+        getItems().then(data => {
+          setDb(data)
+          resolve(data)
         })
-    }
-
-    const filterData= async(e)=>{
-      const formData = {min: parseInt(e.target[0].value), max: parseInt(e.target[1].value) }
-     return new Promise(resolve=>{
-       getItemsbyQuery(formData).then(response=>{
-        resolve(response)
       })
-     }) 
-    }
+      }
+    
+
 
     const sendCheckOut = async(form) => {
       const dbFS = getFirestore();
@@ -133,15 +75,11 @@ const DBProvider = ( { children }) => {
     const valueD = useMemo(()=>{
     return{
         db,
-        spinner,
-        setSpinner,
-        sortDB,
         refreshDB,
         sendCheckOut,
-        filterData,
         itemsCount
         }
-    },[db,spinner])
+    },[db,refreshDB])
 
 
 

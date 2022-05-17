@@ -5,8 +5,9 @@ import Spinner from "../Spinner/Spinner";
 const NotFound = (props) => {
     const navigate = useNavigate()
     useEffect(() => {
+    window.scrollTo(0, 0)
       setTimeout(() => {
-          navigate("/shop")
+          navigate("/")
       }, 4000);
     }, [])
     
@@ -17,7 +18,7 @@ const NotFound = (props) => {
             <div className="container d-flex flex-column justify-content-evenly" style={{color:"black",height:"800px", backgroundColor:"white"}}>
                 <h1 className="text-center mx-auto"><Spinner /> Page not found</h1>
 
-                <img className="mx-auto" src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2FsadFace.png?alt=media&token=a88d9d0e-9f30-4598-aba3-2988fad6090c" alt="" />
+                <img className="mx-auto w-100" src="https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2FsadFace.png?alt=media&token=a88d9d0e-9f30-4598-aba3-2988fad6090c" alt="" />
             </div>
         </>
     )

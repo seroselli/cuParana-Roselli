@@ -12,8 +12,6 @@ const Cart = () =>{
 
     const listado = cartList
     const navigate = useNavigate()
-
-
     const[ total, setTotal ] = useState(0)
 
     const showDetail = (itemId) => {
@@ -73,7 +71,7 @@ const Cart = () =>{
                                                 <p className="btnCart mt-auto" style={{position:"absolute", right:"0px",bottom:"0px"}} onClick={()=>{showDetail(item.id)}}>Ocultar</p>
                                             </div>
                                             <div className="row d-flex">
-                                                <p className="btnCart ms-auto my-auto" onClick={()=>{showDetail(item.id)}}>Detalles</p>
+                                                <p className="btnCart ms-auto my-auto" onClick={()=>{showDetail(item.id)}}>Details</p>
                                             </div>
                                             <hr className="mx-auto" style={{width:"90%",color:"rgba(0, 0, 0, 0.2)"}}/>
                                         </div>

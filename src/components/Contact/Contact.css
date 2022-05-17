@@ -27,3 +27,24 @@ background-color: aliceblue;
 #buttonsContact ul li a{
     color: white;
 }
+
+.contactContainer{
+    margin: 100px 10% 0px 10%;
+    min-height:100vh;
+}
+.imgContact{
+    display: block;
+    width: 200px;
+}
+
+@media only screen and (max-width: 766px) {
+
+    .contactContainer{
+        margin: 100px 0px 0px 0px;
+        min-height:100vh;
+        width: 100%;
+    }
+    .imgContact{
+        display: none;
+    }
+}

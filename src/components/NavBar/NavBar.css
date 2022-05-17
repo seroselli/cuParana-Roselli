@@ -7,9 +7,11 @@ nav{
     width: 100%;
     left: 0px;
     top: 0px;
+    padding: 0px!important;
 }
 
 .brandLogo{
+    height: auto;
     max-height: 45px;
     background-color: transparent;
     border: transparent;
@@ -24,7 +26,28 @@ nav{
 .tam{
     width: 300px;
 }
+#navbarSupportedContent{
+    margin: 0px!important;
+    background-color: #011c20;
+    padding: 0.1rem!important;
+}
+#contentNavbarToggled{
+    display: flex;    
+    justify-content: space-evenly;
+    margin-right: auto;
+    padding: 0.2rem;
+}
+#contentNavbarToggled ul{
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
+#contentNavbarToggled ul li{
+    margin-bottom: auto;
+    margin-top: auto;
+}
 .results{
     width: 450px;
     min-height: 100px;
@@ -60,14 +83,29 @@ nav{
     background-color:#011c2030;
 }
 
-@media only screen and (min-width: 600px) {
+#buttonsNav{
+    margin: 0%;
+    margin-left: 10%!important;
+    padding: 0%;
+    max-height: 50px;
+
+}
+
+@media only screen and (max-width: 600px) {
     .results{
         width: 100%;
     }
+
+    #buttonsNav{
+        margin-left: 0%!important;
+    }
 }
 
-@media only screen and (min-width: 300px) {
+@media only screen and (max-width: 300px) {
     .results{
         width: 100%;
+    }
+    #buttonsNav{
+        margin-left: 0%!important;
     }
   }

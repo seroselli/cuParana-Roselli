@@ -7,14 +7,14 @@ const Footer = (props) => {
     return (
         <>
             <footer>
-                <div className="container-fluid d-flex flex-column mx-auto">
-                    <div className="row mx-auto justify-content-evenly w-50 mt-5">
-                        <div className="col"><Link to={paths.contact}>Redes sociales</Link></div>
-                        <div className="col"><Link to={paths.offices}>Nuestras sucursales</Link></div>
-                        <div className="col"><a href={"http://www.linkedin.com/in/seroselli"}>Desarrollo</a></div>
+                <div className="container-fluid px-1">
+                    <div className="row mx-auto mt-5 text-center justify-content-center">
+                        <div className="col-md-auto"><Link to={paths.contact}>Redes sociales</Link></div>
+                        <div className="col-md-auto"><Link to={paths.offices}>Nuestras sucursales</Link></div>
+                        <div className="col-md-auto"><a href={"http://www.linkedin.com/in/seroselli"}>Desarrollo</a></div>
                         
                     </div>
-                    <div className="row mt-auto mx-auto">Desarrollado y diseñado por Sebastián Roselli para CoderHouse</div>
+                    <div className="row mt-3 mx-auto text-center justify-content-center">Desarrollado y diseñado por Sebastián Roselli para CoderHouse</div>
                 </div>
             </footer>
         </>

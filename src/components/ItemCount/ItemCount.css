@@ -67,3 +67,19 @@
     line-height: 46px;
     color: rgb(10, 47, 35);
 }
+
+@media only screen and (max-width: 766px) {
+
+    .botones .right{
+        opacity: 1;
+    }
+    .botones .left{
+        opacity: 1;
+    }
+
+    .botones .box{
+        width: 120px;
+        border: 2px solid #000d0f;
+    }
+
+}

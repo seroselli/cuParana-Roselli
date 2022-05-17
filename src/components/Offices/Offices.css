@@ -1,11 +1,11 @@
-#buttonss ul{
+#buttonsOffice ul{
     list-style: none;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
-#buttonss ul li{
+#buttonsOffice ul li{
     border-radius: 20px;
     border: solid white 1px;
     padding: 1rem;
@@ -13,7 +13,64 @@
     transition: 300ms;
    
 }
-#buttonss ul li:hover{
-background-color: aliceblue;
+.buttonsOffices button{
+background-color: white;
 color: black;
+border: transparent;
+border-radius: 5px;
+margin: auto .3rem auto .3rem;
+height: 40px;
+line-height: 40px;
+text-align: center;
+vertical-align: middle;
+}
+
+
+#maps{
+    width: 100%;
+    min-height: 450px;
+    height: auto;
+    border: 0;
+}
+
+
+.parallaxOffices{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Ffondo2.JPG?alt=media&token=ea6ac758-3942-4cb9-86a7-54a9af008f2f");
+    min-height: 100vh   ;
+    position: relative;
+    width: 100%;    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+.shadowOffices{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 3;
+    min-height: 100vh;
+    background-color: #011c20f6;
+    padding-top: 100px;
+}
+
+.contenedor{
+    max-width: 100%!important;
+}
+
+@media only screen and (max-width: 766px) {
+    #maps{
+        width: 100%;
+        min-height: 350px;
+        height: auto;
+        border: 0;
+        margin-top: 50px;
+    }
+
+    .buttonsOffices{
+        min-height: 300px;
+    }
+
 }

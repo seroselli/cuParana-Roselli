@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StrictMode } from 'react';
 import { initializeApp } from 'firebase/app';
+import { FacebookAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCaAZ5uS3Oj_emiGs9W4crikzXLQ4BwxBE",
@@ -15,6 +16,7 @@ const firebaseConfig = {
     appId: "1:120790235894:web:b969dc7518ff09ed4d8ad7"
   };
   
+
 
 export const appFB = initializeApp(firebaseConfig);
 

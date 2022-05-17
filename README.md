@@ -1,4 +1,7 @@
 Cupcakes Paraná [`Open Page`](https://seroselli.github.io/cuParana-Roselli/)
+
+![image](https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2FGIF-CUPCAKES.gif?alt=media&token=3c091ad0-7d8e-4164-bc59-db1b492fe25a)
+
 =========================
 # Introducción
 Este proyecto fue desarrollado con React.js y Firebase como proyecto para el curso de React en [CoderHouse](https://www.coderhouse.com/). Es sencillo, no tiene gestión ni autenticación de usuario. Sirve sólo para gestionar una compra fácil y generar ordenes de compra para un negocio pequeño.
@@ -44,4 +47,4 @@ BrowserRouting-->Offices
 
 Responsive
 =========================
-Con respecto a uso responsive de la página web, todavía queda bajo construcción y se pospone su desarrollo por no estar implícito en los requisitos de entrega.
+Se aplicó CSS y Bootstrap 4 a toda la web para que sea reproducible para dispositivos móviles.

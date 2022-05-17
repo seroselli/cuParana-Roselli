@@ -11,6 +11,10 @@ const CheckCart = ({onAdd}) => {
     const { cartList, counter,total} = useContext(CartContext)
     const listado = cartList
     const listTotal = total
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const handleNext = () =>{
         onAdd("checkout")

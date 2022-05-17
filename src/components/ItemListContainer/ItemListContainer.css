@@ -1,5 +1,7 @@
 .shop{
     text-align: center;
+    z-index: 2;
+    padding-top: 50px;
 }
 
 .parallax{
@@ -13,15 +15,12 @@
     background-color: #1c200128;
     min-height: 100vh;
     color: white!important;
+    position: relative;
 }
 
 .icono{
     max-height: 50px;
     width: auto;
-}
-ul li Link{
-    background-color: beige!important;
-    border: transparent!important;
 }
 
 .icono:hover{
@@ -39,36 +38,314 @@ ul li Link{
     text-align: start;
     position: relative;
     display: block;
+    padding: 0.4rem;
 }
-
-
-.filters ul{
-    list-style: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.168);
-}
-
-select{
+.inputGroup{
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.filterModule form input{
+    width: 33%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 7px;
+    border: solid 1px rgba(128, 128, 128, 0.645);
+}
+.filterModule form input:focus{
+    border: solid 2px #011c20!important;
+    outline: solid 3px #0648523f!important;
+}
+.filterModule form{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.filterModule button{
+    width: 80%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin: .4rem auto 0 auto;
+    border: transparent;
+    background-color: white;
+    border-radius: 5px;
 }
 
-@media only screen and (min-width: 300px) {
+#buttonSubmitFilter{
+    width: 80%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin: .4rem auto 0 auto;
+    border: solid 1px #011c20;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.filterButtons{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.filterButtons button{
+    max-width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: white;
+    color: black;
+    border: transparent;
+    border-radius: 10px;
+}
+.parallax h2{
+    margin: 0px;
+    padding: auto;
+    background-color:#011c20;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+.filterModule{
+    display: flex;
+    flex-direction: column;
+    width: 100%!important;
+    padding-bottom: 0.4rem;
+}
+
+.parallaxItemList{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2Fbuttercream.jpg?alt=media&token=8d5cd2a0-a10a-4032-9ec5-d66664ef4745");
+    min-height: 100vh;
+    position: relative;
+    width: 100%;    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.shadowItemList{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    background-color: #ffffffa4;
+}
+.selected{
+    color: rgba(0, 0, 0, 0.323)!important;
+    text-shadow: rgba(11, 35, 64, 0.573) 1px 1px 5px;
+    pointer-events: none;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.filterLetters{
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0.5rem auto 0.2rem 0.4rem;
+}   
+#btnFilter{
+    display: none;
+}
+#filter{
+    width: 90%;
+    margin: 0 auto 0 auto;
+    border: solid 1px #011c20;
+    border-radius: 7px;
+    background-color: white;
+    
+}
+
+#resetFilters{
+    border-top: solid 1px rgba(0, 0, 0, 0.086);
+    border-bottom: solid 1px rgba(0, 0, 0, 0.086);
+}
+@media only screen and (max-width: 1130px) {
+    .filterButtons {
+        flex-direction: column;
+    }
+}
+
+.filterContent{
+    display: block;
+    position: relative;
+}
+
+
+
+@media only screen and (max-width: 766px) {
+    .filterButtons {
+        flex-direction: row;
+
+    }
+    #btnFilter{
+        display: flex;
+        background-color: transparent;
+        color: black;
+        border: transparent;
+        position: absolute;
+        top: 20px;
+        right: 5px;
+    }
+    #btnFilter span{
+        display: block;
+        margin-left: 10px;
+        width: 10px;
+        height: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        border-top: 2px solid #000;
+        border-left: 2px solid #000;
+        z-index: 1;
+        transform:  rotate(225deg);
+    }
+    #filterContent{
+        display: none;
+        position: absolute;
+        z-index: 3;
+        background-color: white;
+        width: 100%;
+        left: 0;
+        height: min-content;
+    }
     .filters{
+        padding-top: 20px;
         width: 100%;
         min-height: auto;
         height: 100%;
     }
-    li{
+
+    .filterModule{
+        display: flex;
+        flex-direction: row;
+        width: 100%!important;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+        text-align: center;
+        justify-content: center;
+        border-bottom: solid rgba(0, 0, 0, 0.068) 1px;
+    }
+    .filterModule form input{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 5px;
+    }
+
+    .filterModule form input:focus{
+        border: solid 2px #011c20!important;
+        outline: solid 3px #0648523f!important;
+    }
+    .filterModule form button{
+        width: 80px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        vertical-align: middle;
+        margin: auto 0 auto 0;
+        border: solid 1px #011c20;
+        background-color: white;
+        border-radius: 5px;
+        padding: 0px;
+    }
+    .filterModule form{
         width: 100%;
-        text-align: center;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
     }
-    h4{
-        text-align: center;
+    
+    .filterLetters{
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 10px;
+    }   
+
+
+    .filterButtons{
+        margin-left: auto;
     }
+    .filterButtons button{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        background-color: white;
+        color: black;
+        border: transparent;
+        border-radius: 10px;
+        padding: 0.1rem;
+        margin: 0.1rem;
+    }
+    #buttonSubmitFilter{
+        width: 80%;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        margin: auto auto auto 0 ;
+        border: solid 1px #011c20;
+        background-color: white;
+        border-radius: 5px;
+    }
+    
+    #resetFilters{
+        border-top: solid 1px rgba(3, 7, 43, 0.065);
+        border-bottom: solid 1px rgba(3, 7, 43, 0.065);
+        background: linear-gradient(to bottom, white, rgba(3, 7, 43, 0.065),white);
+    }
+
     select{
         margin-left: auto;
         margin-right: auto;
+    }    
+    option:hover{
+        background-color: #ffffff!important;
     }
-    ul{
-        padding-left: 0%;
+    #filter{
+        border: solid 1px #011c20;
+        border-radius: 7px;
+        background-color: white;
+        height: 30px;
+    }
+
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        grid-gap: 30px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 0 30px 0 30px;
     }
   }
+
+
+@media only screen and (max-width: 600px) {
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(1,auto);
+        grid-gap: 30px;
+        grid-auto-rows: minmax(100px, auto);
+        margin: 0 30px 0 30px;
+    }
+}
