@@ -14,7 +14,9 @@ Este proyecto fue desarrollado con React.js y Firebase como proyecto para el cur
 Algunas cosas importantes:
 =========================
 Esta página esta publicada en Github Pages a través del package `npm i gh-pages`, para ello se agregó en package.json "homepage" la dirección de GH pages. Por lo tanto se hizo un `npm run build` y un `npm run deploy` para publicar el webpack bajo el siguiente link: [Cupcakes Paraná](https://seroselli.github.io/cuParana-Roselli/)
- Notar también que también se hizo una modificación en los path de los Links para que el Browser Router funcione correctamente en la dirección de GH Pages. Esta modificación se puede ver en [App.js](https://github.com/seroselli/cuParana-Roselli/blob/main/src/App.js)
+ Notar que también se hizo una modificación en los path de los Links para que el Browser Router funcione correctamente en la dirección de GH Pages. Esta modificación se puede ver en [App.js](https://github.com/seroselli/cuParana-Roselli/blob/main/src/App.js)
+ 
+ Para utilizar este repositorio, por favor, leer bien los comentarios en App.js
  
 # Packages utilizados
 
