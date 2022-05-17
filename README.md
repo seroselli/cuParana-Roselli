@@ -1,6 +1,6 @@
 Cupcakes Paraná [`Open Page`](https://seroselli.github.io/cuParana-Roselli/)
 
-![image](https://firebasestorage.googleapis.com/v0/b/coder-react2022.appspot.com/o/images%2FGIF-CUPCAKES.gif?alt=media&token=3c091ad0-7d8e-4164-bc59-db1b492fe25a)
+![image](https://github.com/seroselli/cuParana-Roselli/blob/main/public/assets/GIF-CUPCAKES.gif?raw=true)
 
 =========================
 # Introducción
