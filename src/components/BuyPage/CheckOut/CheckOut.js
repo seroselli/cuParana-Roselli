@@ -39,7 +39,7 @@ const navigate = useNavigate()
 }
  
     function validate(e){
-        const numeros = "0123456789";
+        const numeros = "0123456789!,;:°!{}()/&%$#'¿¡?*+=^`~][";
         const letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
         const correo = "!,;:°!{}()/&%$#'¿¡?*+=^`~][";
         let palabra = e.target.value
